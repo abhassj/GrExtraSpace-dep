@@ -43,15 +43,15 @@ export default function ServicesOverview() {
                   Our Services
                   <ArrowRight size={14} />
                 </Link>
-                <button
-                  type="button"
+                <Link
+                  to="/projects"
                   className="inline-flex items-center gap-3 text-xs font-medium uppercase tracking-[0.22em] text-brand-navy/80 transition hover:text-brand-red"
                 >
                   <span className="flex h-10 w-10 items-center justify-center border border-brand-navy/30">
                     <Play size={12} className="translate-x-[1px]" />
                   </span>
                   The GR Way
-                </button>
+                </Link>
               </div>
             </div>
 
@@ -132,7 +132,6 @@ export default function ServicesOverview() {
 
               <div className="mt-6 flex items-center justify-between text-[10px] font-semibold uppercase tracking-[0.22em] text-brand-navy/60">
                 <span>Hover to explore</span>
-                <span>06 Disciplines</span>
               </div>
             </div>
 

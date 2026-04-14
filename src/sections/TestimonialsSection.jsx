@@ -45,13 +45,13 @@ export default function TestimonialsSection() {
   }, [emblaApi])
 
   return (
-    <section className="relative bg-brand-paper py-24 text-brand-navy lg:py-32">
+    <section className="relative bg-brand-paper py-16 lg:py-20 text-brand-navy">
       <div className="section-wrap">
         <div className="section-inner">
           <div className="flex flex-wrap items-end justify-between gap-10">
             <div className="max-w-2xl">
               <SectionLabel>Client Voices</SectionLabel>
-              <h2 className="mt-10 font-display text-4xl font-medium leading-[1.05] tracking-[-0.01em] text-brand-navy md:text-5xl lg:text-[3.5rem]">
+              <h2 className="mt-8 font-display text-4xl font-medium leading-[1.05] tracking-[-0.01em] text-brand-navy md:text-5xl lg:text-[3.5rem]">
                 Trusted for quality
                 <br />
                 and <span className="italic">dependable delivery.</span>
@@ -90,26 +90,26 @@ export default function TestimonialsSection() {
             </div>
           </div>
 
-          <div className="mt-16 border-t border-brand-navy/15">
+          <div className="mt-12 border-t border-brand-navy/15">
             <div className="overflow-hidden" ref={emblaRef}>
               <div className="flex">
                 {testimonials.map((testimonial) => (
                   <article
                     key={testimonial.client}
-                    className="min-w-0 flex-[0_0_100%] py-16"
+                    className="min-w-0 flex-[0_0_100%] py-10 lg:py-16"
                   >
-                    <div className="grid gap-10 lg:grid-cols-[0.2fr_0.8fr] lg:gap-16">
+                    <div className="grid gap-6 lg:grid-cols-[0.1fr_0.9fr] lg:gap-10">
                       <div>
-                        <span className="font-display text-[8rem] leading-[0.6] text-brand-red/40">
+                        <span className="font-display text-[5rem] leading-[0.6] text-brand-red/40">
                           "
                         </span>
                       </div>
                       <div>
-                        <p className="max-w-4xl font-display text-2xl font-medium leading-[1.3] text-brand-navy md:text-4xl lg:text-[2.75rem]">
+                        <p className="max-w-4xl font-display text-2xl font-medium leading-[1.3] text-brand-navy lg:text-3xl xl:text-4xl">
                           {testimonial.quote}
                         </p>
-                        <div className="mt-10 flex items-center gap-5 border-t border-brand-navy/15 pt-6">
-                          <div className="h-12 w-12 rounded-full bg-brand-navy/10" />
+                        <div className="mt-8 flex items-center gap-5 border-t border-brand-navy/15 pt-5">
+                          <div className="h-10 w-10 rounded-full bg-brand-navy/10" />
                           <div>
                             <p className="font-display text-lg text-brand-navy">
                               {testimonial.client}
@@ -127,16 +127,17 @@ export default function TestimonialsSection() {
             </div>
           </div>
 
-          <div className="mt-8 grid gap-px border-t border-brand-navy/15 bg-brand-navy/15 md:grid-cols-3">
+          <div className="mt-8 grid md:grid-cols-3 gap-6">
             {trustSignals.map((signal) => (
               <div
                 key={signal}
-                className="bg-brand-paper px-6 py-6 text-center text-[10px] font-semibold uppercase tracking-[0.24em] text-brand-navy/70"
+                className="py-4 text-center text-[10px] font-semibold uppercase tracking-[0.24em] text-brand-navy/60"
               >
                 {signal}
               </div>
             ))}
           </div>
+
         </div>
       </div>
     </section>

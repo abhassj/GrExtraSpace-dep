@@ -1,166 +1,139 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState, useCallback } from 'react'
 import clsx from 'clsx'
 import { ArrowLeft, ArrowRight } from 'lucide-react'
 import useEmblaCarousel from 'embla-carousel-react'
+import Autoplay from 'embla-carousel-autoplay'
 import { Link } from 'react-router-dom'
 import { projects } from '../data/homeContent'
 
-const regionFlag = {
-  UK: '🇬🇧',
-  SA: '🇿🇦',
-}
-
 export default function ProjectsSlider() {
-  const [emblaRef, emblaApi] = useEmblaCarousel({
-    align: 'start',
-    loop: true,
-    dragFree: true,
-    containScroll: 'trimSnaps',
-  })
-  const [selectedIndex, setSelectedIndex] = useState(1)
-  const [snapCount, setSnapCount] = useState(projects.length)
+  const autoplay = useRef(
+    Autoplay({ delay: 4000, stopOnInteraction: false, stopOnMouseEnter: true })
+  )
 
-  useEffect(() => {
-    if (!emblaApi) {
-      return undefined
-    }
+  const [emblaRef, emblaApi] = useEmblaCarousel(
+    {
+      align: 'start',
+      loop: true,
+      skipSnaps: false,
+      dragFree: true,
+    },
+    [autoplay.current]
+  )
 
-    const onSelect = () => {
-      setSelectedIndex(emblaApi.selectedScrollSnap() + 1)
-      setSnapCount(emblaApi.scrollSnapList().length)
-    }
+  const [hoveredIdx, setHoveredIdx] = useState(null)
 
-    onSelect()
-    emblaApi.on('select', onSelect)
-    emblaApi.on('reInit', onSelect)
+  const scrollPrev = useCallback(() => {
+    if (emblaApi) emblaApi.scrollPrev()
+  }, [emblaApi])
 
-    return () => {
-      emblaApi.off('select', onSelect)
-      emblaApi.off('reInit', onSelect)
-    }
+  const scrollNext = useCallback(() => {
+    if (emblaApi) emblaApi.scrollNext()
   }, [emblaApi])
 
   return (
-    <section className="relative bg-brand-mist py-24 text-brand-navy lg:py-32">
-      <div className="section-wrap">
-        <div className="section-inner">
-          <div className="flex flex-wrap items-end justify-between gap-10">
-            <div className="max-w-2xl">
-              <p className="eyebrow">Portfolio</p>
-              <h2 className="mt-8 font-display text-4xl font-medium leading-[1.05] tracking-[-0.01em] text-brand-navy md:text-5xl lg:text-[3.5rem]">
-                All our projects started
-                <br />
-                with someone
-                <br />
-                <span className="italic">like you.</span>
-              </h2>
-            </div>
-
-            <div className="max-w-md">
-              <p className="text-base leading-relaxed text-brand-navy/70">
-                Someone with big plans and high standards. Browse our portfolio
-                to see what we've built, then share your ideas for what could be
-                next.
-              </p>
-              <Link to="/projects" className="cta-outline-dark mt-8">
-                Portfolio
-                <ArrowRight size={14} />
-              </Link>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="mt-16 lg:mt-20">
-        <div className="overflow-hidden" ref={emblaRef}>
-          <div className="flex items-center pl-5 md:pl-10 lg:pl-16 xl:pl-20">
-            {projects.map((project, index) => {
-              const isOffset = index % 2 !== 0
-              return (
-                <article
-                  key={project.name}
-                  className={clsx(
-                    'relative min-w-0 shrink-0 px-3 md:px-4',
-                    'flex-[0_0_88%] md:flex-[0_0_52%] lg:flex-[0_0_40%] xl:flex-[0_0_34%]',
-                    isOffset ? 'lg:translate-y-10' : 'lg:translate-y-0',
-                  )}
+    <section className="relative bg-white py-20 text-brand-navy lg:py-28 overflow-hidden">
+      {/* We use a full-width flex layout to ensure the left side bleeds perfectly to 0px */}
+      <div className="flex flex-col-reverse lg:flex-row items-center gap-10 lg:gap-10 xl:gap-16">
+        
+        {/* Slider Container - taking up 70% of viewport width, flush with absolute left edge */}
+        <div className="w-full lg:w-[72%]">
+          <div className="overflow-hidden" ref={emblaRef}>
+            {/* The flex container for embla. No left padding so it starts at exactly 0. */}
+            <div className="flex">
+              {projects.map((project, index) => (
+                <div
+                  key={`${project.name}-${index}`}
+                  className="relative min-w-0 flex-[0_0_85%] sm:flex-[0_0_55%] md:flex-[0_0_45%] lg:flex-[0_0_48%] xl:flex-[0_0_42%] 2xl:flex-[0_0_35%] h-[400px] sm:h-[450px] lg:h-[550px] shrink-0 mr-4 lg:mr-6"
+                  onMouseEnter={() => setHoveredIdx(index)}
+                  onMouseLeave={() => setHoveredIdx(null)}
                 >
-                  <div className="group relative aspect-[4/5] overflow-hidden bg-brand-navy shadow-editorial">
+                  <Link
+                    to="/projects"
+                    className="group relative block h-full w-full overflow-hidden rounded-[8px] bg-brand-navy shadow-sm cursor-pointer"
+                  >
+                    {/* Image */}
                     <img
                       src={project.image}
                       alt={project.name}
-                      className="h-full w-full object-cover transition-transform duration-[1400ms] group-hover:scale-105"
+                      className={clsx(
+                        'absolute inset-0 h-full w-full object-cover transition-all duration-700',
+                        hoveredIdx === index
+                          ? 'scale-110 blur-[4px] brightness-50'
+                          : 'scale-100 blur-0 brightness-100'
+                      )}
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-brand-ink/80 via-brand-ink/10 to-transparent" />
 
-                    <div className="absolute left-5 top-5 flex items-center gap-2 border border-white/40 bg-white/10 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.22em] text-white backdrop-blur-md">
-                      <span>{regionFlag[project.region]}</span>
-                      {project.region === 'UK' ? 'United Kingdom' : 'South Africa'}
+                    {/* Hover overlay content */}
+                    <div
+                      className={clsx(
+                        'absolute inset-0 flex flex-col justify-center px-8 transition-all duration-600',
+                        hoveredIdx === index
+                          ? 'opacity-100 translate-y-0'
+                          : 'opacity-0 translate-y-6'
+                      )}
+                    >
+                      <h3 className="font-display text-2xl font-medium leading-[1.15] text-white uppercase tracking-wide md:text-3xl">
+                        {project.name}
+                      </h3>
+                      <p className="mt-3 text-[12px] font-semibold text-white/90 uppercase tracking-[0.2em]">
+                        {project.location}
+                      </p>
+                      <div className="mt-8 mb-8 h-[1px] w-16 bg-brand-gold" />
+                      <span className="inline-flex items-center gap-3 text-[11px] font-medium uppercase tracking-[0.24em] text-white group-hover:text-brand-gold transition-colors">
+                        <ArrowRight size={14} />
+                        Learn More
+                      </span>
                     </div>
-
-                    <div className="absolute inset-x-0 bottom-0">
-                      <div className="m-5 border border-white/20 bg-white/10 p-5 backdrop-blur-lg">
-                        <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-brand-gold">
-                          {project.category}
-                        </p>
-                        <h3 className="mt-2 font-display text-2xl leading-tight text-white md:text-[1.75rem]">
-                          {project.name}
-                        </h3>
-                        <div className="mt-4 flex items-center justify-between border-t border-white/20 pt-4">
-                          <p className="text-[11px] uppercase tracking-[0.2em] text-white/70">
-                            {project.location}
-                          </p>
-                          <Link
-                            to="/projects"
-                            className="inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-white transition hover:text-brand-gold"
-                          >
-                            View
-                            <ArrowRight size={12} />
-                          </Link>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </article>
-              )
-            })}
+                  </Link>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
-      </div>
 
-      <div className="section-wrap mt-12">
-        <div className="section-inner flex flex-wrap items-center justify-between gap-6">
-          <div className="flex items-center gap-6">
-            <p className="text-[10px] font-semibold uppercase tracking-[0.24em] text-brand-navy/60">
-              Drag to explore
-            </p>
-            <span className="h-px w-16 bg-brand-navy/20" />
-            <p className="font-display text-sm text-brand-navy">
-              <span className="text-brand-red">{String(selectedIndex).padStart(2, '0')}</span>
-              <span className="text-brand-navy/40"> / {String(snapCount).padStart(2, '0')}</span>
-            </p>
-          </div>
+        {/* Text block — right column, standard padding applied here so text doesn't touch edges */}
+        <div className="w-full px-5 md:px-10 lg:w-[28%] lg:pr-10 xl:pr-16 lg:pl-0 flex flex-col justify-center shrink-0">
+          <h2 className="font-display text-4xl font-medium leading-[1.05] tracking-[-0.01em] text-brand-navy md:text-5xl lg:text-[3.2rem]">
+            Extraordinary
+            <br />
+            spaces begin 
+            <br />
+            with bold <span className="italic">ideas.</span>
+          </h2>
 
-          <div className="flex items-center gap-3">
+          <p className="mt-6 text-base leading-relaxed text-brand-navy/70 lg:text-[15px]">
+            Every great build starts with a vision. Explore our diverse portfolio of turnkey developments, container projects, and bespoke modular spaces. Let’s turn your architectural aspirations into reality.
+          </p>
+
+          <Link
+            to="/projects"
+            className="mt-8 inline-flex w-fit items-center gap-3 border border-brand-navy/20 px-8 py-3.5 text-[11px] font-bold uppercase tracking-[0.22em] text-brand-navy transition hover:bg-brand-navy hover:text-white rounded-[4px]"
+          >
+            Portfolio
+          </Link>
+
+          {/* Navigation arrows (Layton circular layout) */}
+          <div className="mt-10 flex items-center gap-3">
             <button
               type="button"
-              className="inline-flex h-12 w-12 items-center justify-center border border-brand-navy/30 text-brand-navy transition hover:bg-brand-navy hover:text-white"
-              onClick={() => emblaApi?.scrollPrev()}
-              aria-label="Previous project"
+              onClick={scrollPrev}
+              aria-label="Previous projects"
+              className="inline-flex h-[42px] w-[42px] items-center justify-center rounded-full bg-brand-navy text-white transition hover:bg-brand-red shadow-sm"
             >
               <ArrowLeft size={16} />
             </button>
-
             <button
               type="button"
-              className="inline-flex h-12 w-12 items-center justify-center border border-brand-red bg-brand-red text-white transition hover:bg-brand-red-deep"
-              onClick={() => emblaApi?.scrollNext()}
-              aria-label="Next project"
+              onClick={scrollNext}
+              aria-label="Next projects"
+              className="inline-flex h-[42px] w-[42px] items-center justify-center rounded-full bg-brand-navy text-white transition hover:bg-brand-red shadow-sm"
             >
               <ArrowRight size={16} />
             </button>
           </div>
         </div>
+
       </div>
     </section>
   )

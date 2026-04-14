@@ -18,20 +18,17 @@ const socialLinks = [
 
 export default function Footer() {
   return (
-    <footer className="relative bg-brand-ink text-white">
+    <footer className="relative bg-brand-navy text-white">
       <div className="section-wrap">
         <div className="section-inner">
           <div className="grid gap-16 border-b border-white/10 py-20 md:grid-cols-2 xl:grid-cols-[1.2fr_0.8fr_0.8fr_1fr]">
             <div>
               <Link to="/" className="inline-flex items-center gap-3">
                 <img
-                  src="/Gr%20logo.png"
+                  src="/Gr%20logo%20(2).png"
                   alt="GR Extra Space"
-                  className="h-12 w-auto"
+                  className="h-14 w-auto object-contain brightness-0 invert"
                 />
-                <span className="font-display text-xl font-medium text-white">
-                  GR Extra Space
-                </span>
               </Link>
               <p className="mt-6 max-w-xs text-sm leading-relaxed text-white/65">
                 Fourth-generation builders delivering turnkey construction,

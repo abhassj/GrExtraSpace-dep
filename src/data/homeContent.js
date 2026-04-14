@@ -15,7 +15,7 @@ export const heroSlides = [
   },
   {
     image:
-      'https://images.unsplash.com/photo-1590725175785-de025cbbb50e?auto=format&fit=crop&w=1600&q=80',
+      'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1600&q=80',
     caption: 'KZN, South Africa',
     category: 'Container Developments',
   },
@@ -41,7 +41,7 @@ export const services = [
     shortLabel: 'Container Builds',
     benefit: 'Fast, durable container-led architecture for parks, retail pods, and bespoke commercial spaces.',
     image:
-      'https://images.unsplash.com/photo-1590725175785-de025cbbb50e?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1200&q=80',
   },
   {
     id: 'turnkey',
@@ -73,7 +73,7 @@ export const services = [
     shortLabel: 'Play Areas',
     benefit: 'Safe, engaging recreational spaces tailored for schools, resorts, and estates.',
     image:
-      'https://images.unsplash.com/photo-1597430203889-c93cce4aaa47?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&w=1200&q=80',
   },
   {
     id: 'interiors',
@@ -136,7 +136,7 @@ export const projects = [
     category: 'Container Build',
     summary: 'Multi-unit container destination designed for retail and community activation.',
     image:
-      'https://images.unsplash.com/photo-1590725175785-de025cbbb50e?auto=format&fit=crop&w=1400&q=80',
+      'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1400&q=80',
   },
   {
     name: 'Bespoke Commercial Build',
@@ -163,7 +163,7 @@ export const projects = [
     category: 'Recreation',
     summary: 'Family-first recreation install blending robust materials with safety standards.',
     image:
-      'https://images.unsplash.com/photo-1597430203889-c93cce4aaa47?auto=format&fit=crop&w=1400&q=80',
+      'https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&w=1400&q=80',
   },
   {
     name: 'Park Home Modular Build',

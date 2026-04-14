@@ -8,25 +8,40 @@ import { navLinks } from '../../data/homeContent'
 const MotionBackdrop = motion.button
 const MotionDrawer = motion.aside
 
-const LOGO_SRC = '/Gr%20logo.png'
+const LOGO_SRC = '/Gr%20logo%20(2).png'
 
 export default function Navbar() {
   const location = useLocation()
   const [isScrolled, setIsScrolled] = useState(false)
+  const [scrollDirection, setScrollDirection] = useState('up')
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
-  const isHome = location.pathname === '/'
-
+  // Track scroll direction and scroll position
   useEffect(() => {
-    const onScroll = () => setIsScrolled(window.scrollY > 24)
+    let lastScrollY = window.scrollY
 
-    onScroll()
-    window.addEventListener('scroll', onScroll, { passive: true })
+    const handleScroll = () => {
+      const scrollY = window.scrollY
+      const direction = scrollY > lastScrollY ? 'down' : 'up'
+      
+      if (
+        direction !== scrollDirection && 
+        (scrollY - lastScrollY > 10 || scrollY - lastScrollY < -10)
+      ) {
+        setScrollDirection(direction)
+      }
+      
+      lastScrollY = scrollY > 0 ? scrollY : 0
+      setIsScrolled(scrollY > 24)
+    }
+
+    handleScroll()
+    window.addEventListener('scroll', handleScroll, { passive: true })
 
     return () => {
-      window.removeEventListener('scroll', onScroll)
+      window.removeEventListener('scroll', handleScroll)
     }
-  }, [])
+  }, [scrollDirection])
 
   useEffect(() => {
     document.body.style.overflow = isMobileMenuOpen ? 'hidden' : ''
@@ -36,16 +51,16 @@ export default function Navbar() {
     }
   }, [isMobileMenuOpen])
 
-  const transparentMode = isHome && !isScrolled
+  // Hide the navbar when scrolling down (unless the mobile menu is open)
+  const isNavHidden = isScrolled && scrollDirection === 'down' && !isMobileMenuOpen
 
   return (
     <>
       <header
         className={clsx(
-          'fixed inset-x-0 top-0 z-50 transition-all duration-500',
-          transparentMode
-            ? 'bg-transparent'
-            : 'border-b border-white/10 bg-brand-navy/92 backdrop-blur-xl',
+          'fixed inset-x-0 top-0 z-50 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]',
+          isNavHidden ? '-translate-y-full' : 'translate-y-0',
+          isScrolled ? 'bg-brand-mist shadow-sm' : 'bg-brand-mist'
         )}
       >
         <div className="section-wrap">
@@ -54,11 +69,8 @@ export default function Navbar() {
               <img
                 src={LOGO_SRC}
                 alt="GR Extra Space"
-                className="h-10 w-auto md:h-12"
+                className="h-14 w-auto object-contain md:h-[4.5rem] drop-shadow-sm"
               />
-              <span className="hidden font-display text-lg font-semibold text-white md:inline">
-                GR Extra Space
-              </span>
             </Link>
 
             <nav className="hidden items-center gap-10 lg:flex">
@@ -68,8 +80,8 @@ export default function Navbar() {
                   to={item.to}
                   className={({ isActive }) =>
                     clsx(
-                      'relative text-xs font-medium uppercase tracking-[0.22em] transition-colors duration-300',
-                      isActive ? 'text-white' : 'text-white/70 hover:text-white',
+                      'relative text-xs font-semibold uppercase tracking-[0.22em] transition-colors duration-300',
+                      isActive ? 'text-brand-red' : 'text-brand-navy/70 hover:text-brand-navy',
                     )
                   }
                 >
@@ -78,7 +90,7 @@ export default function Navbar() {
                       {item.label}
                       <span
                         className={clsx(
-                          'absolute -bottom-2 left-1/2 h-[2px] w-6 -translate-x-1/2 bg-brand-gold transition-opacity duration-300',
+                          'absolute -bottom-2 left-1/2 h-[2px] w-6 -translate-x-1/2 bg-brand-red transition-opacity duration-300',
                           isActive ? 'opacity-100' : 'opacity-0',
                         )}
                       />
@@ -99,7 +111,7 @@ export default function Navbar() {
 
             <button
               type="button"
-              className="inline-flex h-11 w-11 items-center justify-center border border-white/30 text-white backdrop-blur lg:hidden"
+              className="inline-flex h-11 w-11 items-center justify-center border border-brand-navy/30 text-brand-navy transition-colors hover:bg-brand-navy/5 lg:hidden"
               aria-label={
                 isMobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'
               }
@@ -153,12 +165,12 @@ export default function Navbar() {
               </nav>
 
               <Link
-                to="/contact"
-                className="mt-10 inline-flex w-full items-center justify-center gap-2 border border-brand-red bg-brand-red px-5 py-4 text-xs font-semibold uppercase tracking-[0.22em] text-white"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Get a Quote
-              </Link>
+                 to="/contact"
+                 className="mt-10 inline-flex w-full items-center justify-center gap-2 border border-brand-red bg-brand-red px-5 py-4 text-xs font-semibold uppercase tracking-[0.22em] text-white"
+                 onClick={() => setIsMobileMenuOpen(false)}
+               >
+                 Get a Quote
+               </Link>
             </MotionDrawer>
           </>
         ) : null}
