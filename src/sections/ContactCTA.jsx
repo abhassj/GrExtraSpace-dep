@@ -17,6 +17,14 @@ export default function ContactCTA() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-brand-ink/20 via-transparent to-transparent" />
               </div>
+              
+              {/* Restored 4th Generation Badge */}
+              <div className="absolute -bottom-6 -right-6 hidden lg:flex flex-col justify-center bg-brand-navy px-10 py-8 text-white shadow-2xl z-10">
+                <p className="font-display text-[2.5rem] leading-none">4th</p>
+                <p className="mt-2 text-[10px] font-bold uppercase tracking-[0.2em] text-brand-gold">
+                  Generation<br/>Builders
+                </p>
+              </div>
             </div>
 
             <div>
