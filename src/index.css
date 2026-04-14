@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply m-0 min-h-screen bg-brand-mist font-body text-brand-navy antialiased;
+  }
+
+  * {
+    @apply box-border;
+  }
+
+  #root {
+    @apply min-h-screen;
+  }
+
+  ::selection {
+    background: #0A192F;
+    color: #FFFFFF;
+  }
+}
+
+@layer components {
+  .section-wrap {
+    @apply px-5 md:px-10 lg:px-16 xl:px-20;
+  }
+
+  .section-inner {
+    @apply mx-auto max-w-[1440px];
+  }
+
+  .eyebrow {
+    @apply text-xs font-medium uppercase tracking-[0.24em] text-brand-navy/70;
+  }
+
+  .eyebrow-light {
+    @apply text-xs font-medium uppercase tracking-[0.24em] text-white/70;
+  }
+
+  .display-xl {
+    @apply font-display text-5xl font-medium leading-[1.02] tracking-[-0.01em] md:text-6xl lg:text-7xl xl:text-[5.5rem];
+  }
+
+  .display-lg {
+    @apply font-display text-4xl font-medium leading-[1.05] tracking-[-0.01em] md:text-5xl lg:text-6xl;
+  }
+
+  .display-md {
+    @apply font-display text-3xl font-medium leading-[1.08] tracking-[-0.005em] md:text-4xl lg:text-5xl;
+  }
+
+  .body-lg {
+    @apply text-base leading-relaxed text-brand-navy/75 md:text-lg;
+  }
+
+  .cta-primary {
+    @apply inline-flex items-center gap-2 border border-brand-red bg-brand-red px-7 py-3.5 text-xs font-semibold uppercase tracking-[0.18em] text-white transition duration-300 hover:-translate-y-0.5 hover:bg-brand-red-deep hover:shadow-[0_14px_30px_-10px_rgba(217,4,41,0.55)];
+  }
+
+  .cta-ghost {
+    @apply inline-flex items-center gap-2 border border-white/70 bg-transparent px-7 py-3.5 text-xs font-semibold uppercase tracking-[0.18em] text-white transition duration-300 hover:-translate-y-0.5 hover:border-white hover:bg-white hover:text-brand-navy;
+  }
+
+  .cta-outline-dark {
+    @apply inline-flex items-center gap-2 border border-brand-navy/80 bg-transparent px-7 py-3.5 text-xs font-semibold uppercase tracking-[0.18em] text-brand-navy transition duration-300 hover:-translate-y-0.5 hover:bg-brand-navy hover:text-white;
+  }
+
+  .cta-dark {
+    @apply inline-flex items-center gap-2 border border-brand-navy bg-brand-navy px-7 py-3.5 text-xs font-semibold uppercase tracking-[0.18em] text-white transition duration-300 hover:-translate-y-0.5 hover:bg-brand-ink;
+  }
+
+  .hairline {
+    @apply h-px w-full bg-brand-navy/15;
+  }
+
+  .hairline-light {
+    @apply h-px w-full bg-white/15;
+  }
+}
+
+@layer utilities {
+  .blueprint-grid {
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.12) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.12) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+
+  .rotate-label {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+  }
+
+  .marquee-track {
+    width: max-content;
+    animation: marquee 38s linear infinite;
+  }
+
+  .marquee-track-reverse {
+    width: max-content;
+    animation: marquee-reverse 42s linear infinite;
+  }
+
+  .marquee-shell:hover .marquee-track,
+  .marquee-shell:hover .marquee-track-reverse {
+    animation-play-state: paused;
+  }
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  @keyframes marquee-reverse {
+    from {
+      transform: translateX(-50%);
+    }
+
+    to {
+      transform: translateX(0);
+    }
+  }
+}
