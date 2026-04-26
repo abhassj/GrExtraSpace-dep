@@ -60,7 +60,7 @@ export default function Navbar() {
         className={clsx(
           'fixed inset-x-0 top-0 z-50 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]',
           isNavHidden ? '-translate-y-full' : 'translate-y-0',
-          isScrolled ? 'bg-brand-mist shadow-sm' : 'bg-brand-mist'
+          isScrolled ? 'bg-brand-mist/95 backdrop-blur-md shadow-sm' : 'bg-transparent'
         )}
       >
         <div className="section-wrap">
@@ -73,40 +73,40 @@ export default function Navbar() {
               />
             </Link>
 
-            <nav className="hidden items-center gap-10 lg:flex">
-              {navLinks.map((item) => (
-                <NavLink
-                  key={item.to}
-                  to={item.to}
-                  className={({ isActive }) =>
-                    clsx(
-                      'relative text-xs font-semibold uppercase tracking-[0.22em] transition-colors duration-300',
-                      isActive ? 'text-brand-red' : 'text-brand-navy/70 hover:text-brand-navy',
-                    )
-                  }
-                >
-                  {({ isActive }) => (
-                    <>
-                      {item.label}
-                      <span
-                        className={clsx(
-                          'absolute -bottom-2 left-1/2 h-[2px] w-6 -translate-x-1/2 bg-brand-red transition-opacity duration-300',
-                          isActive ? 'opacity-100' : 'opacity-0',
-                        )}
-                      />
-                    </>
-                  )}
-                </NavLink>
-              ))}
-            </nav>
+            <div className="hidden items-center gap-10 lg:flex">
+              <nav className="flex items-center gap-10">
+                {navLinks.map((item) => (
+                  <NavLink
+                    key={item.to}
+                    to={item.to}
+                    className={({ isActive }) =>
+                      clsx(
+                        'relative text-xs font-semibold uppercase tracking-[0.22em] transition-colors duration-300',
+                        isActive ? 'text-brand-red' : 'text-brand-navy/70 hover:text-brand-navy',
+                      )
+                    }
+                  >
+                    {({ isActive }) => (
+                      <>
+                        {item.label}
+                        <span
+                          className={clsx(
+                            'absolute -bottom-2 left-1/2 h-[2px] w-6 -translate-x-1/2 bg-brand-red transition-opacity duration-300',
+                            isActive ? 'opacity-100' : 'opacity-0',
+                          )}
+                        />
+                      </>
+                    )}
+                  </NavLink>
+                ))}
+              </nav>
 
-            <div className="hidden lg:block">
-              <Link
-                to="/contact"
+              <a
+                href="#contact"
                 className="inline-flex items-center gap-2 border border-brand-red bg-brand-red px-6 py-3 text-[11px] font-semibold uppercase tracking-[0.2em] text-white transition duration-300 hover:-translate-y-0.5 hover:bg-brand-red-deep hover:shadow-[0_14px_30px_-12px_rgba(217,4,41,0.7)]"
               >
                 Get a Quote
-              </Link>
+              </a>
             </div>
 
             <button
@@ -164,13 +164,14 @@ export default function Navbar() {
                 ))}
               </nav>
 
-              <Link
-                 to="/contact"
+              <a
+                 href="#contact"
                  className="mt-10 inline-flex w-full items-center justify-center gap-2 border border-brand-red bg-brand-red px-5 py-4 text-xs font-semibold uppercase tracking-[0.22em] text-white"
                  onClick={() => setIsMobileMenuOpen(false)}
                >
                  Get a Quote
-               </Link>
+               </a>
+
             </MotionDrawer>
           </>
         ) : null}

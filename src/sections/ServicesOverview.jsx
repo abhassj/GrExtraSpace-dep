@@ -39,19 +39,10 @@ export default function ServicesOverview() {
               </div>
 
               <div className="mt-12 flex flex-wrap items-center gap-4">
-                <Link to="/services" className="cta-outline-dark">
-                  Our Services
+                <a href="#contact" className="cta-outline-dark">
+                  Get a Quote
                   <ArrowRight size={14} />
-                </Link>
-                <Link
-                  to="/projects"
-                  className="inline-flex items-center gap-3 text-xs font-medium uppercase tracking-[0.22em] text-brand-navy/80 transition hover:text-brand-red"
-                >
-                  <span className="flex h-10 w-10 items-center justify-center border border-brand-navy/30">
-                    <Play size={12} className="translate-x-[1px]" />
-                  </span>
-                  The GR Way
-                </Link>
+                </a>
               </div>
             </div>
 

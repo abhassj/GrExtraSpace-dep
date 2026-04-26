@@ -4,7 +4,7 @@ import { contactImage } from '../data/homeContent'
 
 export default function ContactCTA() {
   return (
-    <section className="relative bg-brand-mist py-16 text-brand-navy lg:py-24">
+    <section id="contact" className="relative bg-brand-mist py-16 text-brand-navy lg:py-24">
       <div className="section-wrap">
         <div className="section-inner">
           <div className="grid gap-12 lg:grid-cols-[1fr_1.1fr] lg:items-center lg:gap-20">
@@ -68,13 +68,13 @@ export default function ContactCTA() {
               </div>
 
               <div className="mt-10 flex flex-wrap items-center gap-4">
-                <Link
-                  to="/contact"
+                <a
+                  href="mailto:info@grextraspace.co.za"
                   className="inline-flex items-center gap-3 border border-brand-red bg-brand-red px-8 py-4 text-[11px] font-semibold uppercase tracking-[0.22em] text-white transition duration-300 hover:-translate-y-0.5 hover:bg-brand-red-deep hover:shadow-[0_14px_30px_-10px_rgba(217,4,41,0.55)]"
                 >
                   Contact Us
                   <ArrowRight size={14} />
-                </Link>
+                </a>
               </div>
             </div>
           </div>

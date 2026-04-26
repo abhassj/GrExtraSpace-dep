@@ -65,8 +65,7 @@ export default function HeroSection() {
                 variants={item}
                 className="flex items-center gap-3 text-[11px] font-medium uppercase tracking-[0.28em] text-brand-navy/70"
               >
-                <span className="h-px w-10 bg-brand-red" />
-                GR Extra Space Construction
+                
               </MotionParagraph>
 
               <MotionHeading
@@ -91,20 +90,13 @@ export default function HeroSection() {
                 variants={item}
                 className="mt-10 flex flex-wrap items-center gap-4"
               >
-                <Link
-                  to="/contact"
+                <a
+                  href="#contact"
                   className="inline-flex items-center gap-3 border border-brand-red bg-brand-red px-7 py-4 text-[11px] font-semibold uppercase tracking-[0.22em] text-white transition duration-300 hover:-translate-y-0.5 hover:bg-brand-red-deep hover:shadow-[0_14px_30px_-10px_rgba(217,4,41,0.55)]"
                 >
                   Get a Quote
                   <ArrowRight size={14} />
-                </Link>
-
-                <Link
-                  to="/projects"
-                  className="inline-flex items-center gap-3 border border-brand-navy/60 bg-transparent px-7 py-4 text-[11px] font-semibold uppercase tracking-[0.22em] text-brand-navy transition duration-300 hover:-translate-y-0.5 hover:bg-brand-navy hover:text-white"
-                >
-                  View Our Work
-                </Link>
+                </a>
               </MotionDiv>
 
               <MotionDiv
@@ -139,6 +131,7 @@ export default function HeroSection() {
                 className="h-full w-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-brand-ink/60 via-brand-ink/10 to-transparent" />
+              <div className="absolute inset-x-0 top-0 h-48 bg-gradient-to-b from-brand-mist via-brand-mist/60 to-transparent" />
             </motion.div>
           </AnimatePresence>
 

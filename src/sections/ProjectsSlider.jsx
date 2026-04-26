@@ -48,8 +48,7 @@ export default function ProjectsSlider() {
                   onMouseEnter={() => setHoveredIdx(index)}
                   onMouseLeave={() => setHoveredIdx(null)}
                 >
-                  <Link
-                    to="/projects"
+                  <div
                     className="group relative block h-full w-full overflow-hidden rounded-[8px] bg-brand-navy shadow-sm cursor-pointer"
                   >
                     {/* Image */}
@@ -85,7 +84,7 @@ export default function ProjectsSlider() {
                         Learn More
                       </span>
                     </div>
-                  </Link>
+                  </div>
                 </div>
               ))}
             </div>
@@ -106,12 +105,7 @@ export default function ProjectsSlider() {
             Every great build starts with a vision. Explore our diverse portfolio of turnkey developments, container projects, and bespoke modular spaces. Let’s turn your architectural aspirations into reality.
           </p>
 
-          <Link
-            to="/projects"
-            className="mt-8 inline-flex w-fit items-center gap-3 border border-brand-navy/20 px-8 py-3.5 text-[11px] font-bold uppercase tracking-[0.22em] text-brand-navy transition hover:bg-brand-navy hover:text-white rounded-[4px]"
-          >
-            Portfolio
-          </Link>
+
 
           {/* Navigation arrows (Layton circular layout) */}
           <div className="mt-10 flex items-center gap-3">
