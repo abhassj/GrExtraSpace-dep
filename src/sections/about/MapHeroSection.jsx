@@ -172,7 +172,7 @@ export default function MapHeroSection() {
       </div>
 
       <a
-        href="#meet-our-team"
+        href="#lets-work-together"
         className="absolute bottom-8 left-1/2 z-20 hidden -translate-x-1/2 items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.24em] text-brand-navy/60 transition hover:text-brand-navy lg:inline-flex"
       >
         Scroll
