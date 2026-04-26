@@ -57,27 +57,33 @@ export default function MapHeroSection() {
       <div className="blueprint-grid absolute inset-0 opacity-[0.06] pointer-events-none" />
       
       <div className="grid min-h-[90vh] grid-cols-1 lg:grid-cols-[0.85fr_1.15fr] lg:min-h-screen">
-        {/* Left Panel: Content */}
         <div className="relative flex flex-col justify-center px-6 md:px-12 lg:pl-20 xl:pl-32 pb-12 pt-16 lg:pb-0 lg:pt-0 z-10">
           <motion.div
-            className="max-w-[500px]"
+            className="max-w-[550px]"
             variants={container}
             initial="hidden"
             animate="visible"
           >
+            <motion.div variants={item} className="mb-6 inline-flex items-center gap-2 border border-brand-navy/10 bg-white/50 px-4 py-2 backdrop-blur-md">
+              <div className="h-1.5 w-1.5 rounded-full bg-brand-red animate-pulse"></div>
+              <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-brand-navy">International Presence</span>
+            </motion.div>
+
             <motion.h1
               variants={item}
-              className="font-display font-bold text-[2.75rem] leading-[1.1] tracking-[-0.015em] text-brand-navy md:text-5xl lg:text-[4rem]"
+              className="font-display font-bold text-[2.75rem] leading-[1.05] tracking-[-0.015em] text-brand-navy md:text-5xl lg:text-[4.5rem]"
             >
-              Delivering excellence across borders
+              Delivering <span className="italic text-brand-navy/80 font-normal">excellence</span><br className="hidden md:block"/> across borders
             </motion.h1>
 
-            <motion.p
+            <motion.div
               variants={item}
-              className="mt-6 text-base leading-relaxed text-brand-navy/80 md:text-[1.1rem] lg:leading-[1.6]"
+              className="mt-8 flex items-center border-l-2 border-brand-red pl-6"
             >
-              We offer premium construction and bespoke architecture services across the United Kingdom and South Africa, and are expanding every day!
-            </motion.p>
+              <p className="text-base leading-relaxed text-brand-navy/75 md:text-[1.15rem] lg:leading-[1.6]">
+                We offer premium construction and bespoke architecture services across the United Kingdom and South Africa, and are expanding every day.
+              </p>
+            </motion.div>
           </motion.div>
         </div>
 

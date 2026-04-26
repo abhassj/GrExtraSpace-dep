@@ -33,35 +33,10 @@ export default function IntroSection() {
 
               <div className="mt-10 max-w-md space-y-4 text-base leading-relaxed text-white/75">
                 <p>
-                  GR Extra Space is a 20-year-old construction company led by a
-                  husband-and-wife team, Viky and Reshma Maharaj, with a 4th
-                  generation of industry expertise transferred, now operating
-                  between South Africa and London.
-                </p>
-                <p>
-                  Built on a powerful four-generation legacy, the company’s
-                  foundations trace back to a family lineage of successful
-                  construction businesses, a heritage that now drives a new era
-                  of growth and innovation. Today, that legacy continues to
-                  evolve, with the next generation contributing specialist
-                  expertise in engineering and high-rise timber fabrication
-                  construction.
-                </p>
-                <p>
-                  Established in South Africa in 2006, GR Extra Space has
-                  expanded internationally, positioning itself within the London
-                  market while maintaining strong operational roots. This
-                  cross-border presence reflects both stability and strategic
-                  growth, key pillars for long-term investment potential.
-                </p>
-                <p>
-                  As a family-led business, GR Extra Space combines heritage,
-                  technical excellence, and hands-on delivery to create
-                  high-quality turnkey extra space bespoke developments. The
-                  company is focused on building not just structures, but
-                  lasting partnerships offering investors a trusted,
-                  legacy-driven platform for growth.
-                </p>
+                  GR Extra Space is a premier construction firm rooted in a century-old family legacy. 
+                  Operating across South Africa and London, 
+                  we combine traditional craftsmanship with modern innovation in engineering and high-rise timber fabrication.
+                </p> 
               </div>
 
               <Link
