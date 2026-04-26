@@ -7,25 +7,31 @@ export const heroSlides = [
   {
     image:
       'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1600&q=80',
-    caption: 'Berkshire, United Kingdom',
-    category: 'Turnkey Construction',
+    caption: 'Transforming Spaces',
+    category: 'Construction Renovation',
   },
   {
     image:
       'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1600&q=80',
-    caption: 'KZN, South Africa',
-    category: 'Container Developments',
+    caption: 'Durable, Modern Living',
+    category: 'Nutec',
   },
   {
     image:
       'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1600&q=80',
-    caption: 'Pietermaritzburg, SA',
-    category: 'Timber & Steel',
+    caption: 'Vibrant Destinations',
+    category: 'Container Parks',
+  },
+  {
+    image:
+      'https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=1600&q=80',
+    caption: 'Precision from Blueprint to Build',
+    category: 'Architecture & Design',
   },
 ]
 
 export const introStats = [
-  { label: 'Years of Experience', value: 18, suffix: '+' },
+  { label: 'Years of Experience', value: 20, suffix: '+' },
   { label: 'Projects Delivered', value: 200, suffix: '+' },
   { label: 'Countries Active', value: 2 },
   { label: 'Dedicated Team', value: 1 },
@@ -33,52 +39,39 @@ export const introStats = [
 
 export const services = [
   {
-    id: 'container',
-    title: 'Container Builds',
-    shortLabel: 'Container Builds',
-    benefit: 'Fast, durable container-led architecture for parks, retail pods, and bespoke commercial spaces.',
-    image:
-      'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1200&q=80',
+    id: 'nutec',
+    title: 'Nutec',
+    shortLabel: 'Nutec',
+    benefit: 'High-quality Nutec homes deliver durable, fire-resistant, and energy-efficient living. Built fast and cost-effective, they provide a modern, sustainable alternative to traditional construction without compromising strength, safety, or long-term value.',
+    image: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1200&q=80',
   },
   {
-    id: 'turnkey',
-    title: 'Turnkey Projects',
-    shortLabel: 'Turnkey Projects',
-    benefit: 'From concept to completion — one accountable partner for the full delivery lifecycle.',
-    image:
-      'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1200&q=80',
+    id: 'container-parks',
+    title: 'Container Parks and Conversions',
+    shortLabel: 'Container Parks',
+    benefit: 'Transform unused spaces into vibrant destinations with custom container parks and conversions. Flexible, stylish, and fast to deploy, they create unique retail, dining, and lifestyle hubs with strong commercial appeal.',
+    image: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1200&q=80',
   },
   {
-    id: 'timber-steel',
-    title: 'Timber & Steel',
-    shortLabel: 'Timber & Steel',
-    benefit: 'Engineered structural frames balancing speed, strength, and design flexibility.',
-    image:
-      'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1200&q=80',
+    id: 'renovation',
+    title: 'Construction Renovation (Old to New)',
+    shortLabel: 'Renovation',
+    benefit: 'We turn outdated properties into modern, high-value spaces. From homes to offices, our renovations maximize aesthetics, functionality, and return on investment while preserving structural integrity and unique architectural character.',
+    image: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1200&q=80',
   },
   {
-    id: 'park-homes',
-    title: 'Park Homes',
-    shortLabel: 'Park Homes',
-    benefit: 'Bespoke modular living that blends refined finishes with practical construction.',
-    image:
-      'https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&w=1200&q=80',
+    id: 'playgrounds',
+    title: 'Kids Steel Playgrounds',
+    shortLabel: 'Playgrounds',
+    benefit: 'Durable steel playgrounds designed for safety, creativity, and long-term use. Our play areas encourage physical activity, social interaction, and imaginative play while enhancing community spaces with vibrant, inclusive designs.',
+    image: 'https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&w=1200&q=80',
   },
   {
-    id: 'play-areas',
-    title: 'Play Areas',
-    shortLabel: 'Play Areas',
-    benefit: 'Safe, engaging recreational spaces tailored for schools, resorts, and estates.',
-    image:
-      'https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&w=1200&q=80',
-  },
-  {
-    id: 'interiors',
-    title: 'Interior Works',
-    shortLabel: 'Interior Works',
-    benefit: 'Fit-outs, drywalling, ceilings, carpentry, and end-of-tenancy finishing under one team.',
-    image:
-      'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1200&q=80',
+    id: 'storage-units',
+    title: 'Storage Units',
+    shortLabel: 'Storage Units',
+    benefit: 'Secure, scalable storage unit solutions tailored for residential and commercial needs. Designed for durability and easy access, they maximize space efficiency while providing reliable, cost-effective storage for growing businesses and homeowners.',
+    image: 'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1200&q=80',
   },
 ]
 
@@ -197,6 +190,12 @@ export const testimonials = [
       'From planning to completion, the shed works were smooth and well-executed. I would confidently work with them again.',
     client: 'Dr Andre',
     detail: 'Private Client',
+  },
+  {
+    quote:
+      'I\'ve worked with Viky and GR Extra Space on many projects. His professionalism and work are executed exceptionally well — reliable and consistently outstanding.',
+    client: 'Vivian Reddy',
+    detail: 'Business Leader & Developer',
   },
 ]
 
