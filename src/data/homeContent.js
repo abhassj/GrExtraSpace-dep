@@ -1,3 +1,16 @@
+import img1 from '../assets/landing page/landing page 1.jpeg';
+import img2 from '../assets/landing page/landing page 2.png';
+import img3 from '../assets/landing page/landing page 3.png';
+import img4 from '../assets/landing page/landing page 4.png';
+import img5 from '../assets/landing page/landing page 5.png';
+import img6 from '../assets/landing page/landing page 6 .jpeg';
+
+import srvImg1 from '../assets/our services/Nutech.png';
+import srvImg2 from '../assets/our services/container parks and conversions.png';
+import srvImg3 from '../assets/our services/Renovations.png';
+import srvImg4 from '../assets/our services/jungle gym and play areas.png';
+import srvImg5 from '../assets/our services/Storage units.png';
+
 export const navLinks = [
   { label: 'Home', to: '/' },
   { label: 'About', to: '/about' },
@@ -5,28 +18,34 @@ export const navLinks = [
 
 export const heroSlides = [
   {
-    image:
-      'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1600&q=80',
+    image: img1,
     caption: 'Transforming Spaces',
     category: 'Construction Renovation',
   },
   {
-    image:
-      'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1600&q=80',
+    image: img2,
     caption: 'Durable, Modern Living',
     category: 'Nutec',
   },
   {
-    image:
-      'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1600&q=80',
+    image: img3,
     caption: 'Vibrant Destinations',
     category: 'Container Parks',
   },
   {
-    image:
-      'https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=1600&q=80',
+    image: img4,
     caption: 'Precision from Blueprint to Build',
     category: 'Architecture & Design',
+  },
+  {
+    image: img5,
+    caption: 'Innovative Designs',
+    category: 'Engineering',
+  },
+  {
+    image: img6,
+    caption: 'Masterful Execution',
+    category: 'Development',
   },
 ]
 
@@ -43,35 +62,35 @@ export const services = [
     title: 'Nutec',
     shortLabel: 'Nutec',
     benefit: 'High-quality Nutec homes deliver durable, fire-resistant, and energy-efficient living. Built fast and cost-effective, they provide a modern, sustainable alternative to traditional construction without compromising strength, safety, or long-term value.',
-    image: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1200&q=80',
+    image: srvImg1,
   },
   {
     id: 'container-parks',
     title: 'Container Parks and Conversions',
     shortLabel: 'Container Parks',
     benefit: 'Transform unused spaces into vibrant destinations with custom container parks and conversions. Flexible, stylish, and fast to deploy, they create unique retail, dining, and lifestyle hubs with strong commercial appeal.',
-    image: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1200&q=80',
+    image: srvImg2,
   },
   {
     id: 'renovation',
     title: 'Construction Renovation (Old to New)',
     shortLabel: 'Renovation',
     benefit: 'We turn outdated properties into modern, high-value spaces. From homes to offices, our renovations maximize aesthetics, functionality, and return on investment while preserving structural integrity and unique architectural character.',
-    image: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1200&q=80',
+    image: srvImg3,
   },
   {
     id: 'playgrounds',
     title: 'Kids Steel Playgrounds',
     shortLabel: 'Playgrounds',
     benefit: 'Durable steel playgrounds designed for safety, creativity, and long-term use. Our play areas encourage physical activity, social interaction, and imaginative play while enhancing community spaces with vibrant, inclusive designs.',
-    image: 'https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&w=1200&q=80',
+    image: srvImg4,
   },
   {
     id: 'storage-units',
     title: 'Storage Units',
     shortLabel: 'Storage Units',
     benefit: 'Secure, scalable storage unit solutions tailored for residential and commercial needs. Designed for durability and easy access, they maximize space efficiency while providing reliable, cost-effective storage for growing businesses and homeowners.',
-    image: 'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1200&q=80',
+    image: srvImg5,
   },
 ]
 
@@ -118,51 +137,49 @@ export const processTimeline = [
   'Handover',
 ]
 
+import port1 from '../assets/portfolio/Kids play areas.jpeg';
+import port2 from '../assets/portfolio/Classrooms for underprivileged children.jpeg';
+import port3 from '../assets/portfolio/Container feeding kitchens.jpeg';
+import port4 from '../assets/portfolio/Nutech classrooms.jpeg';
+import port5 from '../assets/portfolio/Office renovations.jpeg';
+import port6 from '../assets/portfolio/Nutech offices.jpeg';
+import port7 from '../assets/portfolio/Container kitchens.jpeg';
+
 export const projects = [
   {
-    name: 'Container Park Development',
-    location: 'Berkshire, UK',
-    region: 'UK',
-    category: 'Container Build',
-    summary: 'Multi-unit container destination designed for retail and community activation.',
-    image:
-      'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1400&q=80',
+    name: 'Kids play areas',
+    summary: 'Vibrant durable steel playground for safety and fun, featuring slides, climbing elements, and weather-resistant construction, enhancing community spaces for children.',
+    image: port1,
   },
   {
-    name: 'Bespoke Commercial Build',
-    location: 'Durban, SA',
-    region: 'SA',
-    category: 'Commercial',
-    summary: 'Custom container-fit business space with integrated exterior branding system.',
-    image:
-      'https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=1400&q=80',
+    name: 'Classrooms for underprivileged children',
+    summary: 'Empowering communities through impactful educational infrastructure, delivered in collaboration with corporate social responsibility initiatives.',
+    image: port2,
   },
   {
-    name: 'Timber Frame Residence',
-    location: 'KZN, SA',
-    region: 'SA',
-    category: 'Timber Frame',
-    summary: 'Premium timber residence delivered with speed-focused prefabricated components.',
-    image:
-      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1400&q=80',
+    name: 'Container feeding kitchens',
+    summary: 'Container feeding kitchen for impoverished areas built in partnership with Vivian Reddy Sibaya Community Trust',
+    image: port3,
   },
   {
-    name: 'Play Area & Jungle Gym',
-    location: 'Pietermaritzburg, SA',
-    region: 'SA',
-    category: 'Recreation',
-    summary: 'Family-first recreation install blending robust materials with safety standards.',
-    image:
-      'https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&w=1400&q=80',
+    name: 'Nutech classrooms',
+    summary: 'Delivering durable Nutec classrooms that enhance learning environments through fast, sustainable construction and impactful community-focused infrastructure development.',
+    image: port4,
   },
   {
-    name: 'Park Home Modular Build',
-    location: 'Reading, UK',
-    region: 'UK',
-    category: 'Modular',
-    summary: 'Modern modular living unit with compact footprint and refined interior package.',
-    image:
-      'https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&w=1400&q=80',
+    name: 'Office renovations',
+    summary: 'Delivering sophisticated workspace transformations that optimize professional flow through premium structural and interior upgrades.',
+    image: port5,
+  },
+  {
+    name: 'Nutech offices',
+    summary: 'Sustainable Nutec structural solutions providing durable, high-performance modular office environments designed for modern business agility.',
+    image: port6,
+  },
+  {
+    name: 'Container kitchens',
+    summary: 'Customized container kitchen conversions providing durable, scalable, and efficient mobile culinary hubs for commercial demands.',
+    image: port7,
   },
 ]
 
@@ -217,5 +234,6 @@ export const partnersSecondary = [
   'Structura',
 ]
 
-export const contactImage =
-  'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=1400&q=80'
+import contactImg from '../assets/contact/img1.png';
+
+export const contactImage = contactImg;

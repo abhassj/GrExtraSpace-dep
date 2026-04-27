@@ -1,9 +1,8 @@
-import { useEffect, useRef, useState, useCallback } from 'react'
+import { useRef, useState, useCallback } from 'react'
 import clsx from 'clsx'
 import { ArrowLeft, ArrowRight } from 'lucide-react'
 import useEmblaCarousel from 'embla-carousel-react'
 import Autoplay from 'embla-carousel-autoplay'
-import { Link } from 'react-router-dom'
 import { projects } from '../data/homeContent'
 
 export default function ProjectsSlider() {
@@ -75,14 +74,10 @@ export default function ProjectsSlider() {
                       <h3 className="font-display text-2xl font-medium leading-[1.15] text-white uppercase tracking-wide md:text-3xl">
                         {project.name}
                       </h3>
-                      <p className="mt-3 text-[12px] font-semibold text-white/90 uppercase tracking-[0.2em]">
-                        {project.location}
+                      <div className="mt-6 mb-6 h-[1px] w-16 bg-brand-gold" />
+                      <p className="text-sm leading-relaxed text-white/90 font-medium">
+                        {project.summary}
                       </p>
-                      <div className="mt-8 mb-8 h-[1px] w-16 bg-brand-gold" />
-                      <span className="inline-flex items-center gap-3 text-[11px] font-medium uppercase tracking-[0.24em] text-white group-hover:text-brand-gold transition-colors">
-                        <ArrowRight size={14} />
-                        Learn More
-                      </span>
                     </div>
                   </div>
                 </div>

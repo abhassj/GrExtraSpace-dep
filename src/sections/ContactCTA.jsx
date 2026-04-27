@@ -13,7 +13,7 @@ export default function ContactCTA() {
                 <img
                   src={contactImage}
                   alt="GR Extra Space construction project"
-                  className="h-full w-full object-cover"
+                  className="h-full w-full object-cover object-center"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-brand-ink/20 via-transparent to-transparent" />
               </div>
