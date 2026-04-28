@@ -56,7 +56,7 @@ export default function ContactCTA() {
                 Contact us or leave a message and we will get back to you with a competitive quote as soon as possible.
               </p>
 
-              <div className="mt-8 grid max-w-md grid-cols-2 gap-4 border-y border-brand-navy/15 py-5 sm:mt-10 sm:gap-6 sm:py-6">
+              <div className="mt-8 grid max-w-md grid-cols-1 gap-4 border-y border-brand-navy/15 py-5 sm:mt-10 sm:grid-cols-2 sm:gap-6 sm:py-6">
                 <div>
                   <div className="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-brand-navy/60">
                     <span className="text-base">{ukOffice.flag}</span> {ukOffice.country}

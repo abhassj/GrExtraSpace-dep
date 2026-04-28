@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion'
 
+const MotionDiv = motion.div
+
 export default function OurStorySection() {
   return (
     <section className="relative overflow-hidden bg-brand-paper py-24 md:py-32" id="our-story">
@@ -8,7 +10,7 @@ export default function OurStorySection() {
 
       <div className="section-wrap relative z-10">
         <div className="section-inner max-w-[1200px]">
-          <motion.div
+          <MotionDiv
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-50px' }}
@@ -22,9 +24,9 @@ export default function OurStorySection() {
             <h2 className="mt-2 font-display text-4xl font-medium leading-[1.05] tracking-[-0.01em] md:text-5xl lg:text-[4rem] text-brand-navy">
               A four-generation <span className="italic text-brand-navy/80 font-normal">legacy</span><br className="hidden md:block"/> of building excellence
             </h2>
-          </motion.div>
+          </MotionDiv>
 
-          <motion.div
+          <MotionDiv
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-50px' }}
@@ -48,10 +50,10 @@ export default function OurStorySection() {
                 As a family led business, GR Extra Space combines heritage, technical excellence, and hands-on delivery to create high quality turnkey extra space bespoke developments. The company is focused on building not just structures, but lasting partnerships offering investors a trusted, legacy driven platform for growth.
               </p>
             </div>
-          </motion.div>
+          </MotionDiv>
           
           {/* Subtle separator at the bottom for aesthetics */}
-          <motion.div
+          <MotionDiv
             initial={{ scaleX: 0 }}
             whileInView={{ scaleX: 1 }}
             viewport={{ once: true }}

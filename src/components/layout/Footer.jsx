@@ -1,4 +1,3 @@
-import { Facebook, Instagram, Linkedin } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { navLinks } from '../../data/homeContent'
 import { contactOffices } from '../../data/aboutContent'
@@ -11,11 +10,7 @@ const serviceLinks = [
   'Turnkey Projects',
 ]
 
-const socialLinks = [
-  { name: 'LinkedIn', icon: Linkedin, href: '#' },
-  { name: 'Facebook', icon: Facebook, href: '#' },
-  { name: 'Instagram', icon: Instagram, href: '#' },
-]
+const socialLinks = []
 
 const saOffice = contactOffices.find((o) => o.id === 'sa')
 const ukOffice = contactOffices.find((o) => o.id === 'uk')
@@ -43,18 +38,20 @@ export default function Footer() {
                 the United Kingdom.
               </p>
 
-              <div className="mt-8 flex items-center gap-3">
-                {socialLinks.map((social) => (
-                  <a
-                    key={social.name}
-                    href={social.href}
-                    aria-label={social.name}
-                    className="inline-flex h-11 w-11 items-center justify-center border border-white/20 text-white/75 transition hover:border-brand-gold hover:text-brand-gold"
-                  >
-                    <social.icon size={16} />
-                  </a>
-                ))}
-              </div>
+              {socialLinks.length > 0 ? (
+                <div className="mt-8 flex items-center gap-3">
+                  {socialLinks.map((social) => (
+                    <a
+                      key={social.name}
+                      href={social.href}
+                      aria-label={social.name}
+                      className="inline-flex h-11 w-11 items-center justify-center border border-white/20 text-white/75 transition hover:border-brand-gold hover:text-brand-gold"
+                    >
+                      <social.icon size={16} />
+                    </a>
+                  ))}
+                </div>
+              ) : null}
             </div>
 
             <div>

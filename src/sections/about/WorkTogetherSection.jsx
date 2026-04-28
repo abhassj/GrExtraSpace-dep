@@ -2,6 +2,8 @@ import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 import { contactOffices } from '../../data/aboutContent'
 
+const MotionDiv = motion.div
+
 export default function WorkTogetherSection() {
   return (
     <section className="relative overflow-hidden bg-brand-navy py-24 text-white md:py-32" id="lets-work-together">
@@ -24,7 +26,7 @@ export default function WorkTogetherSection() {
 
           <div className="mx-auto mt-16 grid max-w-3xl gap-8 md:grid-cols-2 md:gap-16">
             {contactOffices.map((office, index) => (
-              <motion.div
+              <MotionDiv
                 key={office.id}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -45,17 +47,22 @@ export default function WorkTogetherSection() {
                 
                 <div className="mt-6 space-y-3">
                   <p className="text-sm font-medium tracking-wide text-white/90">
-                    {office.phone}
+                    <a
+                      href={office.phoneTel}
+                      className="transition-colors hover:text-white"
+                    >
+                      {office.phone}
+                    </a>
                   </p>
                   <p className="text-sm text-white/70 hover:text-white transition-colors">
                     <a href={`mailto:${office.email}`}>{office.email}</a>
                   </p>
                 </div>
-              </motion.div>
+              </MotionDiv>
             ))}
           </div>
 
-          <motion.div
+          <MotionDiv
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -69,7 +76,7 @@ export default function WorkTogetherSection() {
               Contact Us Now
               <ArrowRight size={14} />
             </a>
-          </motion.div>
+          </MotionDiv>
         </div>
       </div>
     </section>

@@ -43,7 +43,7 @@ export default function ProjectsSlider() {
               {projects.map((project, index) => (
                 <div
                   key={`${project.name}-${index}`}
-                  className="relative min-w-0 flex-[0_0_85%] sm:flex-[0_0_55%] md:flex-[0_0_45%] lg:flex-[0_0_48%] xl:flex-[0_0_42%] 2xl:flex-[0_0_35%] h-[400px] sm:h-[450px] lg:h-[550px] shrink-0 mr-4 lg:mr-6"
+                  className="relative min-w-0 flex-[0_0_85%] sm:flex-[0_0_55%] md:flex-[0_0_45%] lg:flex-[0_0_48%] xl:flex-[0_0_42%] 2xl:flex-[0_0_35%] h-[320px] sm:h-[420px] md:h-[460px] lg:h-[550px] shrink-0 mr-4 lg:mr-6"
                   onMouseEnter={() => setHoveredIdx(index)}
                   onMouseLeave={() => setHoveredIdx(null)}
                 >
@@ -63,10 +63,10 @@ export default function ProjectsSlider() {
                       )}
                     />
 
-                    {/* Hover overlay content */}
+                    {/* Hover overlay content (desktop) */}
                     <div
                       className={clsx(
-                        'absolute inset-0 flex flex-col justify-center px-8 transition-all duration-600',
+                        'absolute inset-0 hidden flex-col justify-center px-8 transition-all duration-600 lg:flex',
                         hoveredIdx === index
                           ? 'opacity-100 translate-y-0'
                           : 'opacity-0 translate-y-6'
@@ -79,6 +79,21 @@ export default function ProjectsSlider() {
                       <p className="text-sm leading-relaxed text-white/90 font-medium">
                         {project.summary}
                       </p>
+                    </div>
+
+                    {/* Mobile overlay content */}
+                    <div className="absolute inset-x-0 bottom-0 lg:hidden">
+                      <div className="bg-gradient-to-t from-brand-ink/85 via-brand-ink/40 to-transparent px-5 pb-5 pt-12">
+                        <p className="text-[10px] font-semibold uppercase tracking-[0.24em] text-brand-gold">
+                          Featured Project
+                        </p>
+                        <h3 className="mt-2 font-display text-lg font-medium leading-[1.2] text-white">
+                          {project.name}
+                        </h3>
+                        <p className="mt-2 text-xs leading-relaxed text-white/85">
+                          {project.summary}
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>

@@ -26,7 +26,7 @@ export default function MethodsSection() {
         transition: { type: 'tween', ease: [0.22, 1, 0.36, 1], duration: 0.8 },
       }
     },
-    hover: (idx) => ({
+    hover: () => ({
       rotate: 0,
       y: -30, // pop up higher
       scale: 1.08, // Unique larger scale for luxurious floating look
