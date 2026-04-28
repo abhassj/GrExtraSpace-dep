@@ -38,7 +38,7 @@ const mapLocations = [
     country: 'United Kingdom',
     region: 'Berkshire',
     coordinates: [-1.2, 51.4], // Approx UK
-    color: '#0A192F', // brand-navy
+    color: '#D90429', // brand-red
     id: 'GBR',
   },
   {
@@ -106,7 +106,7 @@ export default function MapHeroSection() {
               style={{
                 width: "100%",
                 height: "auto",
-                filter: "drop-shadow(0px 8px 12px rgba(10, 25, 47, 0.15))"
+                filter: "drop-shadow(0px 16px 28px rgba(10, 25, 47, 0.2))"
               }}
             >
               <Geographies geography={geoUrl}>
@@ -117,8 +117,7 @@ export default function MapHeroSection() {
                     const isSA = geo.properties.iso_a3 === 'ZAF' || geo.properties.adm0_a3 === 'ZAF' || geo.id === '710' || geo.properties.name === 'South Africa';
                     
                     let fill = "#cbd2e0"; // Default inactive light grey
-                    if (isUK) fill = "#0A192F"; // brand-navy
-                    if (isSA) fill = "#D90429"; // brand-red
+                    if (isUK || isSA) fill = "#D90429"; // brand-red
 
                     return (
                       <Geography
@@ -128,8 +127,8 @@ export default function MapHeroSection() {
                         stroke="#ffffff"
                         strokeWidth={0.8}
                         style={{
-                          default: { outline: "none" },
-                          hover: { outline: "none", fill: isUK ? '#061226' : isSA ? '#A00320' : '#b0b8cc' },
+                          default: { outline: "none", transition: "all 250ms" },
+                          hover: { outline: "none", fill: (isUK || isSA) ? '#A00320' : '#b0b8cc', transition: "all 250ms" },
                           pressed: { outline: "none" },
                         }}
                       />

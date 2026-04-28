@@ -8,6 +8,10 @@ import transnet from '../assets/brand logos/Transnet logo.png'
 import mondi from '../assets/brand logos/mondi group logo.webp'
 import npc from '../assets/brand logos/natal portland cement logo.png'
 import sibaya from '../assets/brand logos/Sibaya logo.png'
+import bnq from '../assets/brand logos/B n Q.png'
+import howdens from '../assets/brand logos/HOWDENS LOGO NEW.png'
+import wickes from '../assets/brand logos/WICKES LOGO NEW.svg'
+
 const brandLogos = [
   { name: 'Build It', src: buildIt },
   { name: 'Clover', src: clover },
@@ -17,6 +21,9 @@ const brandLogos = [
   { name: 'Mondi', src: mondi },
   { name: 'NPC', src: npc },
   { name: 'Sibaya', src: sibaya },
+  { name: 'B&Q', src: bnq },
+  { name: 'Howdens', src: howdens },
+  { name: 'Wickes', src: wickes },
 ]
 
 // Duplicate arrays to ensure seamless marquee scrolling

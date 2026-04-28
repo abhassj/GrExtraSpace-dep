@@ -1,9 +1,9 @@
-import img1 from '../assets/landing page/landing page 1.jpeg';
+import img1 from '../assets/landing page/landing page 1.png';
 import img2 from '../assets/landing page/landing page 2.png';
 import img3 from '../assets/landing page/landing page 3.png';
 import img4 from '../assets/landing page/landing page 4.png';
 import img5 from '../assets/landing page/landing page 5.png';
-import img6 from '../assets/landing page/landing page 6 .jpeg';
+import img6 from '../assets/landing page/landing page 6.png';
 
 import srvImg1 from '../assets/our services/Nutech.png';
 import srvImg2 from '../assets/our services/container parks and conversions.png';
@@ -21,7 +21,6 @@ export const heroSlides = [
     image: img1,
     caption: 'Plans for Modern Living',
     category: 'Custom Nutec',
-    objectFit: 'contain',
     bgClass: 'bg-[#E4E4E4]',
   },
   {
@@ -48,7 +47,6 @@ export const heroSlides = [
     image: img6,
     caption: 'Retail, Reimagined',
     category: 'Container park',
-    objectFit: 'contain',
     bgClass: 'bg-[#050A14]',
   },
 ]
@@ -141,13 +139,14 @@ export const processTimeline = [
   'Handover',
 ]
 
-import port1 from '../assets/portfolio/Kids play areas.jpeg';
-import port2 from '../assets/portfolio/Classrooms for underprivileged children.jpeg';
-import port3 from '../assets/portfolio/Container feeding kitchens.jpeg';
-import port4 from '../assets/portfolio/Nutech classrooms.jpeg';
-import port5 from '../assets/portfolio/Office renovations.jpeg';
-import port6 from '../assets/portfolio/Nutech offices.jpeg';
-import port7 from '../assets/portfolio/Container kitchens.jpeg';
+import port1 from '../assets/portfolio/Kids play areas.png';
+import port2 from '../assets/portfolio/Classrooms for underprivileged children.png';
+import port3 from '../assets/portfolio/Container feeding kitchens.png';
+import port4 from '../assets/portfolio/Nutech classrooms.png';
+import port5 from '../assets/portfolio/Office renovations.png';
+import port6 from '../assets/portfolio/Nutech offices.png';
+import port7 from '../assets/portfolio/Container kitchens.png';
+import port8 from '../assets/portfolio/Medical suite Redesigned.png';
 
 export const projects = [
   {
@@ -185,6 +184,11 @@ export const projects = [
     summary: 'Customized container kitchen conversions providing durable, scalable, and efficient mobile culinary hubs for commercial demands.',
     image: port7,
   },
+  {
+    name: 'Precision Refurbishment: Modern Medical Suite',
+    summary: 'A complete transformation focused on care, compliance, and comfort, blending functionality with a clean, modern aesthetic.',
+    image: port8,
+  },
 ]
 
 export const testimonials = [
@@ -217,6 +221,12 @@ export const testimonials = [
       'I\'ve worked with Viky and GR Extra Space on many projects. His professionalism and work are executed exceptionally well — reliable and consistently outstanding.',
     client: 'Vivian Reddy',
     detail: 'Business Leader & Developer',
+  },
+  {
+    quote:
+      'The team is so good,such a pleasure to work with. Polite,neat and reliable.',
+    client: 'KERRY',
+    detail: 'Upperhighway baby home, SA',
   },
 ]
 
