@@ -19,33 +19,37 @@ export const navLinks = [
 export const heroSlides = [
   {
     image: img1,
-    caption: 'Transforming Spaces',
-    category: 'Construction Renovation',
+    caption: 'Plans for Modern Living',
+    category: 'Custom Nutec',
+    objectFit: 'contain',
+    bgClass: 'bg-[#E4E4E4]',
   },
   {
     image: img2,
-    caption: 'Durable, Modern Living',
-    category: 'Nutec',
+    caption: 'Your vision fully delivered',
+    category: 'Turnkey solutions',
   },
   {
     image: img3,
-    caption: 'Vibrant Destinations',
-    category: 'Container Parks',
+    caption: 'Bold, Modular, Limitless',
+    category: 'Container builds',
   },
   {
     image: img4,
-    caption: 'Precision from Blueprint to Build',
-    category: 'Architecture & Design',
+    caption: 'Container Spaces, Reimagined',
+    category: 'Container Parks & Conversions',
   },
   {
     image: img5,
-    caption: 'Innovative Designs',
-    category: 'Engineering',
+    caption: 'Strength You Can Trust',
+    category: 'Specialized in Timber & Steel:',
   },
   {
     image: img6,
-    caption: 'Masterful Execution',
-    category: 'Development',
+    caption: 'Retail, Reimagined',
+    category: 'Container park',
+    objectFit: 'contain',
+    bgClass: 'bg-[#050A14]',
   },
 ]
 

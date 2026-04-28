@@ -128,7 +128,11 @@ export default function HeroSection() {
               <img
                 src={activeSlide.image}
                 alt={activeSlide.caption}
-                className="h-full w-full object-cover"
+                className={`h-full w-full ${
+                  activeSlide.objectFit === 'contain'
+                    ? `${activeSlide.bgClass || 'bg-transparent'} object-contain object-center`
+                    : 'object-cover'
+                }`}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-brand-ink/60 via-brand-ink/10 to-transparent" />
               <div className="absolute inset-x-0 top-0 h-48 bg-gradient-to-b from-brand-mist via-brand-mist/60 to-transparent" />
