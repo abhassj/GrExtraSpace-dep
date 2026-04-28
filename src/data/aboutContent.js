@@ -60,21 +60,30 @@ export const teamMembers = [
   },
 ]
 
+/**
+ * ─── SINGLE SOURCE OF TRUTH FOR ALL CONTACT DATA ───
+ * Update phone numbers and emails HERE — every page auto-updates.
+ */
 export const contactOffices = [
   {
     id: 'uk',
     flag: '🇬🇧',
     country: 'United Kingdom',
     region: 'Berkshire',
-    phone: '+44 00 0000 0000',
-    email: 'uk@grextraspace.com',
+    phone: '+44 7825 282654',
+    phoneTel: 'tel:+447825282654',
+    email: 'grextraspaceuk@outlook.com',
   },
   {
     id: 'sa',
     flag: '🇿🇦',
     country: 'South Africa',
     region: 'KZN',
-    phone: '+27 00 000 0000',
-    email: 'info@grextraspace.co.za',
+    phone: '+27 74 461 3719',
+    phoneTel: 'tel:+27744613719',
+    email: 'grextraspacersa@outlook.com',
   },
 ]
+
+/** Helper to find a specific office */
+export const getOffice = (id) => contactOffices.find((o) => o.id === id)

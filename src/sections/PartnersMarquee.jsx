@@ -52,7 +52,8 @@ export default function PartnersMarquee() {
                 key={`primary-${partner.name}-${index}`}
                 src={partner.src}
                 alt={partner.name}
-                className="h-12 w-auto shrink-0 object-contain grayscale opacity-60 transition-all duration-300 hover:grayscale-0 hover:opacity-100 md:h-16"
+                loading="lazy"
+                className="h-10 w-auto shrink-0 object-contain grayscale opacity-60 transition-all duration-300 hover:grayscale-0 hover:opacity-100 sm:h-12 md:h-16"
               />
             ))}
           </div>
@@ -65,7 +66,8 @@ export default function PartnersMarquee() {
                 key={`secondary-${partner.name}-${index}`}
                 src={partner.src}
                 alt={partner.name}
-                className="h-12 w-auto shrink-0 object-contain grayscale opacity-60 transition-all duration-300 hover:grayscale-0 hover:opacity-100 md:h-16"
+                loading="lazy"
+                className="h-10 w-auto shrink-0 object-contain grayscale opacity-60 transition-all duration-300 hover:grayscale-0 hover:opacity-100 sm:h-12 md:h-16"
               />
             ))}
           </div>

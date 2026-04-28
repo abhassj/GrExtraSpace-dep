@@ -51,7 +51,7 @@ export default function TestimonialsSection() {
           <div className="flex flex-wrap items-end justify-between gap-10">
             <div className="max-w-2xl">
               <SectionLabel>Client Voices</SectionLabel>
-              <h2 className="mt-8 font-display text-4xl font-medium leading-[1.05] tracking-[-0.01em] text-brand-navy md:text-5xl lg:text-[3.5rem]">
+              <h2 className="mt-6 font-display text-3xl font-medium leading-[1.05] tracking-[-0.01em] text-brand-navy sm:mt-8 sm:text-4xl md:text-5xl lg:text-[3.5rem]">
                 Trusted for quality
                 <br />
                 and <span className="italic">dependable delivery.</span>
@@ -63,7 +63,7 @@ export default function TestimonialsSection() {
                 <button
                   key={`dot-${testimonial.client}`}
                   type="button"
-                  className="group flex flex-col items-center gap-2"
+                  className="group flex flex-col items-center gap-2 min-h-[44px] min-w-[40px] justify-center"
                   onClick={() => emblaApi?.scrollTo(index)}
                   aria-label={`Go to testimonial ${index + 1}`}
                 >
@@ -105,7 +105,7 @@ export default function TestimonialsSection() {
                         </span>
                       </div>
                       <div>
-                        <p className="max-w-4xl font-display text-2xl font-medium leading-[1.3] text-brand-navy lg:text-3xl xl:text-4xl">
+                        <p className="max-w-4xl font-display text-xl font-medium leading-[1.3] text-brand-navy sm:text-2xl lg:text-3xl xl:text-4xl">
                           {testimonial.quote}
                         </p>
                         <div className="mt-8 flex items-center gap-5 border-t border-brand-navy/15 pt-5">
@@ -127,7 +127,7 @@ export default function TestimonialsSection() {
             </div>
           </div>
 
-          <div className="mt-8 grid md:grid-cols-3 gap-6">
+          <div className="mt-8 grid gap-4 sm:grid-cols-3 sm:gap-6">
             {trustSignals.map((signal) => (
               <div
                 key={signal}

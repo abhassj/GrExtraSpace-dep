@@ -106,6 +106,7 @@ export default function MapHeroSection() {
               style={{
                 width: "100%",
                 height: "auto",
+                maxHeight: "60vh",
                 filter: "drop-shadow(0px 16px 28px rgba(10, 25, 47, 0.2))"
               }}
             >

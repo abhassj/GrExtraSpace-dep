@@ -54,6 +54,7 @@ export default function ProjectsSlider() {
                     <img
                       src={project.image}
                       alt={project.name}
+                      loading="lazy"
                       className={clsx(
                         'absolute inset-0 h-full w-full object-cover transition-all duration-700',
                         hoveredIdx === index
@@ -87,8 +88,8 @@ export default function ProjectsSlider() {
         </div>
 
         {/* Text block — right column, standard padding applied here so text doesn't touch edges */}
-        <div className="w-full px-5 md:px-10 lg:w-[28%] lg:pr-10 xl:pr-16 lg:pl-0 flex flex-col justify-center shrink-0">
-          <h2 className="font-display text-4xl font-medium leading-[1.05] tracking-[-0.01em] text-brand-navy md:text-5xl lg:text-[3.2rem]">
+        <div className="mt-10 w-full px-5 md:px-10 lg:mt-0 lg:w-[28%] lg:pr-10 xl:pr-16 lg:pl-0 flex flex-col justify-center shrink-0">
+          <h2 className="font-display text-3xl font-medium leading-[1.05] tracking-[-0.01em] text-brand-navy sm:text-4xl md:text-5xl lg:text-[3.2rem]">
             Extraordinary
             <br />
             spaces begin 

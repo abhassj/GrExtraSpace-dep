@@ -64,6 +64,7 @@ export default function ServicesOverview() {
                         <img
                           src={service.image}
                           alt={service.title}
+                          loading="lazy"
                           className={clsx(
                             'h-full w-full object-cover transition-all duration-[1200ms]',
                             isActive
@@ -148,7 +149,8 @@ export default function ServicesOverview() {
                     <img
                       src={service.image}
                       alt={service.title}
-                      className="h-48 w-full object-cover"
+                      loading="lazy"
+                      className="h-52 w-full object-cover sm:h-64"
                     />
                     <p className="px-5 py-5 text-sm leading-relaxed text-brand-navy/75">
                       {service.benefit}

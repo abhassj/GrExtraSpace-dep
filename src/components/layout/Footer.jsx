@@ -1,6 +1,7 @@
 import { Facebook, Instagram, Linkedin } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { navLinks } from '../../data/homeContent'
+import { contactOffices } from '../../data/aboutContent'
 
 const serviceLinks = [
   'Container Builds',
@@ -16,18 +17,24 @@ const socialLinks = [
   { name: 'Instagram', icon: Instagram, href: '#' },
 ]
 
+const saOffice = contactOffices.find((o) => o.id === 'sa')
+const ukOffice = contactOffices.find((o) => o.id === 'uk')
+
 export default function Footer() {
   return (
     <footer className="relative bg-brand-navy text-white">
       <div className="section-wrap">
         <div className="section-inner">
-          <div className="grid gap-16 border-b border-white/10 py-20 md:grid-cols-2 xl:grid-cols-[1.2fr_0.8fr_0.8fr_1fr]">
+          <div className="grid gap-12 border-b border-white/10 py-16 sm:gap-16 sm:py-20 md:grid-cols-2 xl:grid-cols-[1.2fr_0.8fr_0.8fr_1fr]">
             <div>
               <Link to="/" className="inline-flex items-center gap-3">
                 <img
                   src="/Gr%20logo%20(2).png"
                   alt="GR Extra Space"
                   className="h-14 w-auto object-contain brightness-0 invert"
+                  loading="lazy"
+                  width="120"
+                  height="56"
                 />
               </Link>
               <p className="mt-6 max-w-xs text-sm leading-relaxed text-white/65">
@@ -42,7 +49,7 @@ export default function Footer() {
                     key={social.name}
                     href={social.href}
                     aria-label={social.name}
-                    className="inline-flex h-10 w-10 items-center justify-center border border-white/20 text-white/75 transition hover:border-brand-gold hover:text-brand-gold"
+                    className="inline-flex h-11 w-11 items-center justify-center border border-white/20 text-white/75 transition hover:border-brand-gold hover:text-brand-gold"
                   >
                     <social.icon size={16} />
                   </a>
@@ -87,18 +94,26 @@ export default function Footer() {
               <div className="mt-6 space-y-6 text-sm text-white/75">
                 <div>
                   <p className="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-brand-gold">
-                    <span className="text-base">🇿🇦</span> South Africa | KZN
+                    <span className="text-base">{saOffice.flag}</span> {saOffice.country} | {saOffice.region}
                   </p>
-                  <p className="mt-2">+27 00 000 0000</p>
-                  <p>info@grextraspace.co.za</p>
+                  <p className="mt-2">
+                    <a href={saOffice.phoneTel} className="transition hover:text-white">{saOffice.phone}</a>
+                  </p>
+                  <p>
+                    <a href={`mailto:${saOffice.email}`} className="transition hover:text-white">{saOffice.email}</a>
+                  </p>
                 </div>
 
                 <div>
                   <p className="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-brand-gold">
-                    <span className="text-base">🇬🇧</span> United Kingdom | Berkshire
+                    <span className="text-base">{ukOffice.flag}</span> {ukOffice.country} | {ukOffice.region}
                   </p>
-                  <p className="mt-2">+44 00 0000 0000</p>
-                  <p>uk@grextraspace.com</p>
+                  <p className="mt-2">
+                    <a href={ukOffice.phoneTel} className="transition hover:text-white">{ukOffice.phone}</a>
+                  </p>
+                  <p>
+                    <a href={`mailto:${ukOffice.email}`} className="transition hover:text-white">{ukOffice.email}</a>
+                  </p>
                 </div>
               </div>
             </div>

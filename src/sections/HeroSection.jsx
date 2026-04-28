@@ -128,6 +128,7 @@ export default function HeroSection() {
               <img
                 src={activeSlide.image}
                 alt={activeSlide.caption}
+                fetchpriority="high"
                 className={`h-full w-full ${
                   activeSlide.objectFit === 'contain'
                     ? `${activeSlide.bgClass || 'bg-transparent'} object-contain object-center`
@@ -163,7 +164,7 @@ export default function HeroSection() {
                 <button
                   key={slide.caption}
                   type="button"
-                  className="group flex flex-col items-center gap-2"
+                  className="group flex flex-col items-center gap-2 min-h-[44px] min-w-[44px] justify-center"
                   onClick={() => setIndex(slideIndex)}
                   aria-label={`Show slide ${slideIndex + 1}`}
                 >
