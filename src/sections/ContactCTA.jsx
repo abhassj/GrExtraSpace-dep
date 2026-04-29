@@ -1,6 +1,7 @@
 import { ArrowRight } from 'lucide-react'
 import { contactImage } from '../data/homeContent'
 import { contactOffices } from '../data/aboutContent'
+import { Link } from 'react-router-dom'
 
 const ukOffice = contactOffices.find((o) => o.id === 'uk')
 const saOffice = contactOffices.find((o) => o.id === 'sa')
@@ -80,13 +81,13 @@ export default function ContactCTA() {
               </div>
 
               <div className="mt-8 flex flex-wrap items-center gap-4 sm:mt-10">
-                <a
-                  href={`mailto:${saOffice.email}`}
+                <Link
+                  to="/about#lets-work-together"
                   className="inline-flex items-center gap-3 border border-brand-red bg-brand-red px-6 py-3.5 text-[11px] font-semibold uppercase tracking-[0.22em] text-white transition duration-300 hover:-translate-y-0.5 hover:bg-brand-red-deep hover:shadow-[0_14px_30px_-10px_rgba(217,4,41,0.55)] sm:px-8 sm:py-4"
                 >
                   Contact Us
                   <ArrowRight size={14} />
-                </a>
+                </Link>
               </div>
             </div>
           </div>

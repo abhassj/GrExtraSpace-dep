@@ -90,13 +90,13 @@ export default function HeroSection() {
                 variants={item}
                 className="mt-10 flex flex-wrap items-center gap-4"
               >
-                <a
-                  href="#contact"
+                <Link
+                  to="/about#lets-work-together"
                   className="inline-flex items-center gap-3 border border-brand-red bg-brand-red px-7 py-4 text-[11px] font-semibold uppercase tracking-[0.22em] text-white transition duration-300 hover:-translate-y-0.5 hover:bg-brand-red-deep hover:shadow-[0_14px_30px_-10px_rgba(217,4,41,0.55)]"
                 >
                   Get a Quote
                   <ArrowRight size={14} />
-                </a>
+                </Link>
               </MotionDiv>
 
               <MotionDiv

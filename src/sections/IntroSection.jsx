@@ -40,7 +40,7 @@ export default function IntroSection() {
               </div>
 
               <Link
-                to="/about"
+                to="/about#our-story"
                 className="mt-10 inline-flex items-center gap-3 text-xs font-medium uppercase tracking-[0.22em] text-brand-gold transition hover:text-white"
               >
                 Our Story

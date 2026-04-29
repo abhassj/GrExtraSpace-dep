@@ -8,7 +8,7 @@ import { navLinks } from '../../data/homeContent'
 const MotionBackdrop = motion.button
 const MotionDrawer = motion.aside
 
-const LOGO_SRC = '/Gr%20logo%20(2).png'
+const LOGO_SRC = '/logo%201.png'
 
 export default function Navbar() {
   const location = useLocation()
@@ -101,12 +101,12 @@ export default function Navbar() {
                 ))}
               </nav>
 
-              <a
-                href="#contact"
+              <Link
+                to="/about#lets-work-together"
                 className="inline-flex items-center gap-2 border border-brand-red bg-brand-red px-6 py-3 text-[11px] font-semibold uppercase tracking-[0.2em] text-white transition duration-300 hover:-translate-y-0.5 hover:bg-brand-red-deep hover:shadow-[0_14px_30px_-12px_rgba(217,4,41,0.7)]"
               >
                 Get a Quote
-              </a>
+              </Link>
             </div>
 
             <button
@@ -164,13 +164,13 @@ export default function Navbar() {
                 ))}
               </nav>
 
-              <a
-                 href="#contact"
+              <Link
+                 to="/about#lets-work-together"
                  className="mt-10 inline-flex w-full items-center justify-center gap-2 border border-brand-red bg-brand-red px-5 py-4 text-xs font-semibold uppercase tracking-[0.22em] text-white"
                  onClick={() => setIsMobileMenuOpen(false)}
                >
                  Get a Quote
-               </a>
+               </Link>
 
             </MotionDrawer>
           </>

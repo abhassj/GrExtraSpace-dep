@@ -39,8 +39,8 @@ export default function ServicesOverview() {
               </div>
 
               <div className="mt-12 flex flex-wrap items-center gap-4">
-                <a href="#contact" className="cta-outline-dark">
-                  Get a Quote
+                <a href="#portfolio" className="cta-outline-dark">
+                  View Portfolio
                   <ArrowRight size={14} />
                 </a>
               </div>

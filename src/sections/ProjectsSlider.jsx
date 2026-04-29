@@ -31,7 +31,7 @@ export default function ProjectsSlider() {
   }, [emblaApi])
 
   return (
-    <section className="relative bg-white py-20 text-brand-navy lg:py-28 overflow-hidden">
+    <section id="portfolio" className="relative bg-white py-20 text-brand-navy lg:py-28 overflow-hidden">
       {/* We use a full-width flex layout to ensure the left side bleeds perfectly to 0px */}
       <div className="flex flex-col-reverse lg:flex-row items-center gap-10 lg:gap-10 xl:gap-16">
         
