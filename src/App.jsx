@@ -4,8 +4,9 @@ import Footer from './components/layout/Footer'
 import Navbar from './components/layout/Navbar'
 import HomePage from './pages/HomePage'
 
-// Lazy-load AboutPage (heavy: react-simple-maps + d3-geo)
+// Lazy-load pages
 const AboutPage = lazy(() => import('./pages/AboutPage'))
+const PrivacyPolicyPage = lazy(() => import('./pages/PrivacyPolicyPage'))
 
 /**
  * Dismiss the HTML preloader with a smooth exit animation.
@@ -81,6 +82,7 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/about" element={<AboutPage />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </Suspense>

@@ -147,7 +147,9 @@ export default function Footer() {
 
           <div className="flex flex-col gap-2 py-6 text-[10px] font-semibold uppercase tracking-[0.22em] text-white/45 sm:py-8 md:flex-row md:items-center md:justify-between md:gap-3">
             <p>© {new Date().getFullYear()} GR Extra Space. All rights reserved.</p>
-            <p>Privacy Policy | 4th Generation Builders Since 2006</p>
+            <p>
+              <Link to="/privacy-policy" className="transition-colors hover:text-brand-gold">Privacy Policy</Link> | 4th Generation Builders Since 2006
+            </p>
           </div>
 
           <div className="border-t border-white/10 py-6 text-center sm:py-8">
