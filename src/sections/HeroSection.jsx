@@ -53,7 +53,7 @@ export default function HeroSection() {
   return (
     <section className="relative min-h-screen overflow-hidden bg-brand-mist text-brand-navy">
       <div className="grid min-h-screen grid-cols-1 lg:grid-cols-[0.85fr_1.15fr]">
-        <div className="relative flex flex-col justify-end pb-16 pt-32 md:pb-20 md:pt-40 lg:justify-center lg:pb-10 lg:pt-10">
+        <div className="relative flex flex-col justify-end pb-10 pt-24 sm:pb-14 sm:pt-32 md:pb-20 md:pt-40 lg:justify-center lg:pb-10 lg:pt-10">
           <div className="section-wrap">
             <MotionDiv
               className="max-w-xl"
@@ -61,16 +61,9 @@ export default function HeroSection() {
               initial="hidden"
               animate="visible"
             >
-              <MotionParagraph
-                variants={item}
-                className="flex items-center gap-3 text-[11px] font-medium uppercase tracking-[0.28em] text-brand-navy/70"
-              >
-                
-              </MotionParagraph>
-
               <MotionHeading
                 variants={item}
-                className="mt-8 font-display text-[2.75rem] font-medium leading-[1.02] tracking-[-0.015em] text-brand-navy md:text-6xl lg:text-[4.5rem] xl:text-[5rem]"
+                className="font-display text-[2.5rem] font-medium leading-[1.02] tracking-[-0.015em] text-brand-navy sm:text-[2.75rem] md:text-6xl lg:text-[4.5rem] xl:text-[5rem]"
               >
                 Building beyond
                 <br />
@@ -79,7 +72,7 @@ export default function HeroSection() {
 
               <MotionParagraph
                 variants={item}
-                className="mt-8 max-w-md text-base leading-relaxed text-brand-navy/70 md:text-lg"
+                className="mt-6 max-w-md text-[15px] leading-relaxed text-brand-navy/70 sm:mt-8 sm:text-base md:text-lg"
               >
                 Fourth-generation builders delivering turnkey construction,
                 container solutions, and bespoke architecture across the United
@@ -88,11 +81,11 @@ export default function HeroSection() {
 
               <MotionDiv
                 variants={item}
-                className="mt-10 flex flex-wrap items-center gap-4"
+                className="mt-8 flex flex-wrap items-center gap-4 sm:mt-10"
               >
                 <Link
                   to="/about#lets-work-together"
-                  className="inline-flex items-center gap-3 border border-brand-red bg-brand-red px-7 py-4 text-[11px] font-semibold uppercase tracking-[0.22em] text-white transition duration-300 hover:-translate-y-0.5 hover:bg-brand-red-deep hover:shadow-[0_14px_30px_-10px_rgba(217,4,41,0.55)]"
+                  className="inline-flex items-center gap-3 border border-brand-red bg-brand-red px-6 py-3.5 text-[11px] font-semibold uppercase tracking-[0.22em] text-white transition duration-300 hover:-translate-y-0.5 hover:bg-brand-red-deep hover:shadow-[0_14px_30px_-10px_rgba(217,4,41,0.55)] sm:px-7 sm:py-4"
                 >
                   Get a Quote
                   <ArrowRight size={14} />
@@ -115,7 +108,7 @@ export default function HeroSection() {
           </div>
         </div>
 
-        <div className="relative min-h-[55vh] overflow-hidden bg-brand-ink lg:min-h-screen">
+        <div className="relative min-h-[58vh] overflow-hidden bg-brand-ink sm:min-h-[55vh] lg:min-h-screen">
           <AnimatePresence mode="sync">
             <motion.div
               key={activeSlide.image}
@@ -135,12 +128,12 @@ export default function HeroSection() {
                     : 'object-cover'
                 }`}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-brand-ink/60 via-brand-ink/10 to-transparent" />
-              <div className="absolute inset-x-0 top-0 h-48 bg-gradient-to-b from-brand-mist via-brand-mist/60 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-brand-ink/80 via-brand-ink/30 to-brand-ink/10 lg:from-brand-ink/60 lg:via-brand-ink/10 lg:to-transparent" />
+              <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-brand-mist via-brand-mist/40 to-transparent lg:h-48 lg:via-brand-mist/60" />
             </motion.div>
           </AnimatePresence>
 
-          <div className="absolute inset-x-0 bottom-0 flex items-end justify-between p-6 md:p-10">
+          <div className="absolute inset-x-0 bottom-0 flex flex-col gap-4 p-5 sm:p-6 md:flex-row md:items-end md:justify-between md:p-10">
             <AnimatePresence mode="wait">
               <motion.div
                 key={`${activeSlide.caption}-label`}
@@ -153,26 +146,26 @@ export default function HeroSection() {
                 <p className="text-[10px] font-semibold uppercase tracking-[0.28em] text-brand-gold">
                   {activeSlide.category}
                 </p>
-                <p className="mt-2 font-display text-xl tracking-tight md:text-2xl">
+                <p className="mt-2 font-display text-lg leading-tight tracking-tight sm:text-xl md:text-2xl">
                   {activeSlide.caption}
                 </p>
               </motion.div>
             </AnimatePresence>
 
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2 sm:gap-3">
               {heroSlides.map((slide, slideIndex) => (
                 <button
                   key={slide.caption}
                   type="button"
-                  className="group flex flex-col items-center gap-2 min-h-[44px] min-w-[44px] justify-center"
+                  className="group flex flex-col items-center gap-1.5 min-h-[40px] min-w-[32px] justify-center sm:gap-2 sm:min-w-[44px]"
                   onClick={() => setIndex(slideIndex)}
                   aria-label={`Show slide ${slideIndex + 1}`}
                 >
-                  <span className="text-[10px] font-semibold text-white/60 transition group-hover:text-white">
+                  <span className="text-[9px] font-semibold text-white/60 transition group-hover:text-white sm:text-[10px]">
                     0{slideIndex + 1}
                   </span>
                   <span
-                    className={`h-[2px] w-8 transition-all duration-500 ${
+                    className={`h-[2px] w-6 transition-all duration-500 sm:w-8 ${
                       slideIndex === index
                         ? 'bg-brand-gold'
                         : 'bg-white/30 group-hover:bg-white/70'

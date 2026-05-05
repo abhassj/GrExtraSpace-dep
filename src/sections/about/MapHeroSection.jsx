@@ -55,35 +55,35 @@ const MotionHeading = motion.h1
 
 export default function MapHeroSection() {
   return (
-    <section className="relative min-h-screen overflow-hidden bg-brand-mist text-brand-navy pt-24 lg:pt-0 flex flex-col lg:block">
+    <section className="relative min-h-screen overflow-hidden bg-brand-mist text-brand-navy pt-20 sm:pt-24 lg:pt-0 flex flex-col lg:block">
       {/* Background blueprint grid for texture matching inspiration */}
       <div className="blueprint-grid absolute inset-0 opacity-[0.06] pointer-events-none" />
-      
-      <div className="grid min-h-[90vh] grid-cols-1 lg:grid-cols-[0.85fr_1.15fr] lg:min-h-screen">
-        <div className="relative flex flex-col justify-center px-6 md:px-12 lg:pl-20 xl:pl-32 pb-12 pt-16 lg:pb-0 lg:pt-0 z-10">
+
+      <div className="grid min-h-[88vh] grid-cols-1 lg:grid-cols-[0.85fr_1.15fr] lg:min-h-screen">
+        <div className="relative flex flex-col justify-center px-5 sm:px-6 md:px-12 lg:pl-20 xl:pl-32 pb-8 pt-10 sm:pb-12 sm:pt-16 lg:pb-0 lg:pt-0 z-10">
           <MotionDiv
             className="max-w-[550px]"
             variants={container}
             initial="hidden"
             animate="visible"
           >
-            <MotionDiv variants={item} className="mb-6 inline-flex items-center gap-2 border border-brand-navy/10 bg-white/50 px-4 py-2 backdrop-blur-md">
+            <MotionDiv variants={item} className="mb-5 inline-flex items-center gap-2 border border-brand-navy/10 bg-white/50 px-3 py-2 backdrop-blur-md sm:mb-6 sm:px-4">
               <div className="h-1.5 w-1.5 rounded-full bg-brand-red animate-pulse"></div>
               <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-brand-navy">International Presence</span>
             </MotionDiv>
 
             <MotionHeading
               variants={item}
-              className="font-display font-bold text-[2.75rem] leading-[1.05] tracking-[-0.015em] text-brand-navy md:text-5xl lg:text-[4.5rem]"
+              className="font-display font-bold text-[2.25rem] leading-[1.05] tracking-[-0.015em] text-brand-navy sm:text-[2.75rem] md:text-5xl lg:text-[4.5rem]"
             >
               Delivering <span className="italic text-brand-navy/80 font-normal">excellence</span><br className="hidden md:block"/> across borders
             </MotionHeading>
 
             <MotionDiv
               variants={item}
-              className="mt-8 flex items-center border-l-2 border-brand-red pl-6"
+              className="mt-6 flex items-center border-l-2 border-brand-red pl-5 sm:mt-8 sm:pl-6"
             >
-              <p className="text-base leading-relaxed text-brand-navy/75 md:text-[1.15rem] lg:leading-[1.6]">
+              <p className="text-[15px] leading-relaxed text-brand-navy/75 sm:text-base md:text-[1.15rem] lg:leading-[1.6]">
                 We offer premium construction and bespoke architecture services across the United Kingdom and South Africa, and are expanding every day.
               </p>
             </MotionDiv>
@@ -91,7 +91,7 @@ export default function MapHeroSection() {
         </div>
 
         {/* Right Panel: Map */}
-        <div className="relative min-h-[50vh] w-full flex items-center justify-center p-4 lg:p-0 z-0">
+        <div className="relative min-h-[44vh] w-full flex items-center justify-center p-4 sm:min-h-[50vh] lg:p-0 z-0">
           <MotionDiv 
             className="relative w-full max-w-[800px] h-full flex items-center justify-center lg:-ml-12 xl:-ml-24"
             initial={{ opacity: 0, scale: 0.98 }}

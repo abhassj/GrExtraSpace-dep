@@ -5,8 +5,7 @@ import { Menu, X } from 'lucide-react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import { navLinks } from '../../data/homeContent'
 
-const MotionBackdrop = motion.button
-const MotionDrawer = motion.aside
+const MotionFullscreen = motion.div
 
 const LOGO_SRC = '/logo%201.png'
 
@@ -23,14 +22,14 @@ export default function Navbar() {
     const handleScroll = () => {
       const scrollY = window.scrollY
       const direction = scrollY > lastScrollY ? 'down' : 'up'
-      
+
       if (
-        direction !== scrollDirection && 
+        direction !== scrollDirection &&
         (scrollY - lastScrollY > 10 || scrollY - lastScrollY < -10)
       ) {
         setScrollDirection(direction)
       }
-      
+
       lastScrollY = scrollY > 0 ? scrollY : 0
       setIsScrolled(scrollY > 24)
     }
@@ -60,16 +59,23 @@ export default function Navbar() {
         className={clsx(
           'fixed inset-x-0 top-0 z-50 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]',
           isNavHidden ? '-translate-y-full' : 'translate-y-0',
-          isScrolled ? 'bg-brand-mist/95 backdrop-blur-md shadow-sm' : 'bg-transparent'
+          isMobileMenuOpen
+            ? 'bg-brand-navy'
+            : isScrolled
+              ? 'bg-brand-mist/95 backdrop-blur-md shadow-sm'
+              : 'bg-transparent'
         )}
       >
         <div className="section-wrap">
-          <div className="section-inner flex h-20 items-center justify-between md:h-24">
-            <Link to="/" className="flex items-center gap-3">
+          <div className="section-inner flex h-16 items-center justify-between sm:h-20 md:h-24">
+            <Link to="/" className="flex items-center gap-3" onClick={() => setIsMobileMenuOpen(false)}>
               <img
                 src={LOGO_SRC}
                 alt="GR Extra Space"
-                className="h-14 w-auto object-contain md:h-[4.5rem] drop-shadow-sm"
+                className={clsx(
+                  'h-11 w-auto object-contain transition sm:h-14 md:h-[4.5rem] drop-shadow-sm',
+                  isMobileMenuOpen ? 'brightness-0 invert' : ''
+                )}
               />
             </Link>
 
@@ -111,13 +117,18 @@ export default function Navbar() {
 
             <button
               type="button"
-              className="inline-flex h-11 w-11 items-center justify-center border border-brand-navy/30 text-brand-navy transition-colors hover:bg-brand-navy/5 lg:hidden"
+              className={clsx(
+                'relative z-[60] inline-flex items-center gap-2 px-3 py-2 text-[11px] font-semibold uppercase tracking-[0.22em] transition-colors lg:hidden',
+                isMobileMenuOpen ? 'text-white' : 'text-brand-navy hover:text-brand-red'
+              )}
               aria-label={
                 isMobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'
               }
+              aria-expanded={isMobileMenuOpen}
               onClick={() => setIsMobileMenuOpen((current) => !current)}
             >
-              {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+              <span className="hidden xs:inline sm:inline">{isMobileMenuOpen ? 'CLOSE' : 'MENU'}</span>
+              {isMobileMenuOpen ? <X size={20} strokeWidth={1.75} /> : <Menu size={20} strokeWidth={1.75} />}
             </button>
           </div>
         </div>
@@ -125,55 +136,76 @@ export default function Navbar() {
 
       <AnimatePresence>
         {isMobileMenuOpen ? (
-          <>
-            <MotionBackdrop
-              type="button"
-              className="fixed inset-0 z-40 bg-brand-ink/60 backdrop-blur-sm lg:hidden"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={() => setIsMobileMenuOpen(false)}
-              aria-label="Close menu backdrop"
-            />
+          <MotionFullscreen
+            className="fixed inset-0 z-40 flex flex-col bg-brand-navy text-white lg:hidden"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <div className="blueprint-grid pointer-events-none absolute inset-0 opacity-[0.08]" />
 
-            <MotionDrawer
-              className="fixed inset-y-0 right-0 z-50 w-[86%] max-w-sm border-l border-white/10 bg-brand-navy px-8 pb-10 pt-28 text-white shadow-glass lg:hidden"
-              initial={{ x: '100%' }}
-              animate={{ x: 0 }}
-              exit={{ x: '100%' }}
-              transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-            >
-              <nav className="space-y-1">
-                {navLinks.map((item) => (
-                  <Link
+            <div className="relative flex h-full flex-1 flex-col overflow-y-auto px-6 pb-10 pt-24 sm:px-10">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.32em] text-brand-gold">
+                Navigation
+              </p>
+
+              <nav className="mt-6 flex flex-col">
+                {navLinks.map((item, idx) => (
+                  <motion.div
                     key={`mobile-${item.to}`}
-                    to={item.to}
-                    className={clsx(
-                      'flex items-center justify-between border-b border-white/10 py-5 font-display text-2xl transition',
-                      location.pathname === item.to
-                        ? 'text-brand-gold'
-                        : 'text-white hover:text-brand-gold',
-                    )}
-                    onClick={() => setIsMobileMenuOpen(false)}
+                    initial={{ opacity: 0, y: 24 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.1 + idx * 0.08, ease: [0.22, 1, 0.36, 1] }}
                   >
-                    {item.label}
-                    <span className="text-xs uppercase tracking-[0.22em] text-white/40">
-                      0{navLinks.indexOf(item) + 1}
-                    </span>
-                  </Link>
+                    <Link
+                      to={item.to}
+                      className={clsx(
+                        'flex items-baseline justify-between border-b border-white/10 py-5 font-display text-4xl leading-none transition sm:text-5xl',
+                        location.pathname === item.to
+                          ? 'text-brand-gold'
+                          : 'text-white hover:text-brand-gold',
+                      )}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      <span>{item.label}</span>
+                      <span className="font-body text-[10px] font-semibold uppercase tracking-[0.28em] text-white/40">
+                        0{idx + 1}
+                      </span>
+                    </Link>
+                  </motion.div>
                 ))}
               </nav>
 
-              <Link
-                 to="/about#lets-work-together"
-                 className="mt-10 inline-flex w-full items-center justify-center gap-2 border border-brand-red bg-brand-red px-5 py-4 text-xs font-semibold uppercase tracking-[0.22em] text-white"
-                 onClick={() => setIsMobileMenuOpen(false)}
-               >
-                 Get a Quote
-               </Link>
+              <motion.div
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
+                className="mt-10"
+              >
+                <Link
+                  to="/about#lets-work-together"
+                  className="inline-flex w-full items-center justify-center gap-3 border border-brand-red bg-brand-red px-5 py-4 text-[11px] font-semibold uppercase tracking-[0.24em] text-white"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Get a Quote
+                </Link>
+              </motion.div>
 
-            </MotionDrawer>
-          </>
+              <div className="mt-auto pt-12">
+                <div className="grid grid-cols-2 gap-6 border-t border-white/10 pt-8 text-[10px] font-semibold uppercase tracking-[0.22em] text-white/60">
+                  <div>
+                    <p className="text-brand-gold">United Kingdom</p>
+                    <p className="mt-2 text-white/70 normal-case tracking-normal">Berkshire</p>
+                  </div>
+                  <div>
+                    <p className="text-brand-gold">South Africa</p>
+                    <p className="mt-2 text-white/70 normal-case tracking-normal">KwaZulu-Natal</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </MotionFullscreen>
         ) : null}
       </AnimatePresence>
     </>

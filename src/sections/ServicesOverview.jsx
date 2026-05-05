@@ -11,15 +11,15 @@ export default function ServicesOverview() {
   const [activeId, setActiveId] = useState(services[0].id)
 
   return (
-    <section className="relative bg-brand-mist py-24 text-brand-navy lg:py-32">
+    <section className="relative bg-brand-mist py-16 text-brand-navy sm:py-20 lg:py-32">
       <div className="section-wrap">
         <div className="section-inner">
-          <div className="grid gap-16 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
+          <div className="grid gap-10 sm:gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
             <div className="flex flex-col justify-between">
               <div>
                 <p className="eyebrow">Powering Your Project</p>
 
-                <h2 className="mt-10 font-display text-4xl font-medium leading-[1.05] tracking-[-0.01em] text-brand-navy md:text-5xl lg:text-[3.5rem]">
+                <h2 className="mt-6 font-display text-[2rem] font-medium leading-[1.05] tracking-[-0.01em] text-brand-navy sm:mt-8 sm:text-4xl md:text-5xl lg:mt-10 lg:text-[3.5rem]">
                   We offer the services
                   <br />
                   you need, plus a few
@@ -29,7 +29,7 @@ export default function ServicesOverview() {
                   <span className="italic">you wanted.</span>
                 </h2>
 
-                <p className="mt-10 max-w-md text-base leading-relaxed text-brand-navy/70">
+                <p className="mt-6 max-w-md text-[15px] leading-relaxed text-brand-navy/70 sm:mt-8 sm:text-base lg:mt-10">
                   Whether you're looking for container-led developments, turnkey
                   project management, or full-lifecycle bespoke construction —
                   we've got you covered. From concept to completion, we deliver
@@ -38,7 +38,7 @@ export default function ServicesOverview() {
                 </p>
               </div>
 
-              <div className="mt-12 flex flex-wrap items-center gap-4">
+              <div className="mt-8 flex flex-wrap items-center gap-4 sm:mt-10 lg:mt-12">
                 <a href="#portfolio" className="cta-outline-dark">
                   View Portfolio
                   <ArrowRight size={14} />
@@ -127,22 +127,22 @@ export default function ServicesOverview() {
               </div>
             </div>
 
-            <div className="space-y-3 lg:hidden">
+            <div className="space-y-2 lg:hidden">
               {services.map((service, idx) => (
                 <details
                   key={service.id}
-                  className="group border border-brand-navy/15 bg-white"
+                  className="group border border-brand-navy/15 bg-white transition-colors open:bg-brand-paper"
                 >
-                  <summary className="flex cursor-pointer items-center justify-between gap-4 px-5 py-5 font-display text-xl text-brand-navy">
-                    <span className="flex items-center gap-4">
+                  <summary className="flex cursor-pointer list-none items-center justify-between gap-3 px-4 py-4 font-display text-lg text-brand-navy sm:px-5 sm:py-5 sm:text-xl">
+                    <span className="flex min-w-0 items-center gap-3 sm:gap-4">
                       <span className="text-[10px] font-semibold uppercase tracking-[0.22em] text-brand-red">
                         0{idx + 1}
                       </span>
-                      {service.title}
+                      <span className="truncate">{service.title}</span>
                     </span>
                     <ArrowRight
                       size={16}
-                      className="transition group-open:rotate-90"
+                      className="shrink-0 transition group-open:rotate-90"
                     />
                   </summary>
                   <div className="border-t border-brand-navy/10">
@@ -150,9 +150,9 @@ export default function ServicesOverview() {
                       src={service.image}
                       alt={service.title}
                       loading="lazy"
-                      className="h-52 w-full object-cover sm:h-64"
+                      className="h-44 w-full object-cover sm:h-56"
                     />
-                    <p className="px-5 py-5 text-sm leading-relaxed text-brand-navy/75">
+                    <p className="px-4 py-4 text-sm leading-relaxed text-brand-navy/75 sm:px-5 sm:py-5">
                       {service.benefit}
                     </p>
                   </div>

@@ -31,19 +31,54 @@ export default function ProjectsSlider() {
   }, [emblaApi])
 
   return (
-    <section id="portfolio" className="relative bg-white py-20 text-brand-navy lg:py-28 overflow-hidden">
+    <section id="portfolio" className="relative bg-white py-16 text-brand-navy sm:py-20 lg:py-28 overflow-hidden">
       {/* We use a full-width flex layout to ensure the left side bleeds perfectly to 0px */}
-      <div className="flex flex-col-reverse lg:flex-row items-center gap-10 lg:gap-10 xl:gap-16">
-        
-        {/* Slider Container - taking up 70% of viewport width, flush with absolute left edge */}
-        <div className="w-full lg:w-[72%]">
-          <div className="overflow-hidden" ref={emblaRef}>
-            {/* The flex container for embla. No left padding so it starts at exactly 0. */}
+      <div className="flex flex-col items-center gap-8 sm:gap-10 lg:flex-row lg:gap-10 xl:gap-16">
+
+        {/* Text block on mobile renders first via DOM order (placed below for desktop via order) */}
+        <div className="order-1 w-full px-5 md:px-10 lg:order-2 lg:mt-0 lg:w-[28%] lg:pr-10 xl:pr-16 lg:pl-0 flex flex-col justify-center shrink-0">
+          <h2 className="font-display text-[2rem] font-medium leading-[1.05] tracking-[-0.01em] text-brand-navy sm:text-4xl md:text-5xl lg:text-[3.2rem]">
+            Extraordinary
+            <br />
+            spaces begin
+            <br />
+            with bold <span className="italic">ideas.</span>
+          </h2>
+
+          <p className="mt-5 text-[15px] leading-relaxed text-brand-navy/70 sm:mt-6 sm:text-base lg:text-[15px]">
+            Every great build starts with a vision. Explore our diverse portfolio of turnkey developments, container projects, and bespoke modular spaces. Let’s turn your architectural aspirations into reality.
+          </p>
+
+          {/* Navigation arrows */}
+          <div className="mt-7 flex items-center gap-3 sm:mt-10">
+            <button
+              type="button"
+              onClick={scrollPrev}
+              aria-label="Previous projects"
+              className="inline-flex h-[42px] w-[42px] items-center justify-center rounded-full bg-brand-navy text-white transition hover:bg-brand-red shadow-sm"
+            >
+              <ArrowLeft size={16} />
+            </button>
+            <button
+              type="button"
+              onClick={scrollNext}
+              aria-label="Next projects"
+              className="inline-flex h-[42px] w-[42px] items-center justify-center rounded-full bg-brand-navy text-white transition hover:bg-brand-red shadow-sm"
+            >
+              <ArrowRight size={16} />
+            </button>
+          </div>
+        </div>
+
+        {/* Slider Container */}
+        <div className="order-2 w-full lg:order-1 lg:w-[72%]">
+          <div className="overflow-hidden pl-5 md:pl-10 lg:pl-0" ref={emblaRef}>
+            {/* The flex container for embla. */}
             <div className="flex">
               {projects.map((project, index) => (
                 <div
                   key={`${project.name}-${index}`}
-                  className="relative min-w-0 flex-[0_0_85%] sm:flex-[0_0_55%] md:flex-[0_0_45%] lg:flex-[0_0_48%] xl:flex-[0_0_42%] 2xl:flex-[0_0_35%] h-[320px] sm:h-[420px] md:h-[460px] lg:h-[550px] shrink-0 mr-4 lg:mr-6"
+                  className="relative min-w-0 flex-[0_0_82%] sm:flex-[0_0_60%] md:flex-[0_0_45%] lg:flex-[0_0_48%] xl:flex-[0_0_42%] 2xl:flex-[0_0_35%] h-[360px] sm:h-[420px] md:h-[460px] lg:h-[550px] shrink-0 mr-3 sm:mr-4 lg:mr-6"
                   onMouseEnter={() => setHoveredIdx(index)}
                   onMouseLeave={() => setHoveredIdx(null)}
                 >
@@ -99,43 +134,6 @@ export default function ProjectsSlider() {
                 </div>
               ))}
             </div>
-          </div>
-        </div>
-
-        {/* Text block — right column, standard padding applied here so text doesn't touch edges */}
-        <div className="mt-10 w-full px-5 md:px-10 lg:mt-0 lg:w-[28%] lg:pr-10 xl:pr-16 lg:pl-0 flex flex-col justify-center shrink-0">
-          <h2 className="font-display text-3xl font-medium leading-[1.05] tracking-[-0.01em] text-brand-navy sm:text-4xl md:text-5xl lg:text-[3.2rem]">
-            Extraordinary
-            <br />
-            spaces begin 
-            <br />
-            with bold <span className="italic">ideas.</span>
-          </h2>
-
-          <p className="mt-6 text-base leading-relaxed text-brand-navy/70 lg:text-[15px]">
-            Every great build starts with a vision. Explore our diverse portfolio of turnkey developments, container projects, and bespoke modular spaces. Let’s turn your architectural aspirations into reality.
-          </p>
-
-
-
-          {/* Navigation arrows (Layton circular layout) */}
-          <div className="mt-10 flex items-center gap-3">
-            <button
-              type="button"
-              onClick={scrollPrev}
-              aria-label="Previous projects"
-              className="inline-flex h-[42px] w-[42px] items-center justify-center rounded-full bg-brand-navy text-white transition hover:bg-brand-red shadow-sm"
-            >
-              <ArrowLeft size={16} />
-            </button>
-            <button
-              type="button"
-              onClick={scrollNext}
-              aria-label="Next projects"
-              className="inline-flex h-[42px] w-[42px] items-center justify-center rounded-full bg-brand-navy text-white transition hover:bg-brand-red shadow-sm"
-            >
-              <ArrowRight size={16} />
-            </button>
           </div>
         </div>
 

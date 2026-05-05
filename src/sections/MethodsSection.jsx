@@ -37,12 +37,12 @@ export default function MethodsSection() {
   }
 
   return (
-    <section className="relative bg-brand-navy py-20 text-white lg:py-24 overflow-hidden">
+    <section className="relative bg-brand-navy py-16 text-white sm:py-20 lg:py-24 overflow-hidden">
       <div className="section-wrap relative z-10">
         <div className="section-inner text-center md:text-left flex flex-col items-center">
           <div className="max-w-3xl text-center">
             <SectionLabel light>Construction Methods</SectionLabel>
-            <h2 className="mt-6 font-display text-3xl font-medium leading-[1.05] tracking-[-0.01em] text-white sm:text-4xl md:text-5xl lg:text-[3.2rem]">
+            <h2 className="mt-5 font-display text-[1.85rem] font-medium leading-[1.08] tracking-[-0.01em] text-white sm:mt-6 sm:text-4xl md:text-5xl lg:text-[3.2rem]">
               Technical expertise built around precision, speed,
               <br className="hidden md:block" />
               and <span className="italic">durability.</span>
@@ -97,15 +97,15 @@ export default function MethodsSection() {
           </div>
 
           {/* ── Mobile Stacked Cards ── */}
-          <div className="mt-12 grid w-full gap-4 sm:mt-16 sm:grid-cols-2 sm:gap-5 lg:hidden">
+          <div className="mt-10 grid w-full gap-3.5 sm:mt-16 sm:grid-cols-2 sm:gap-5 lg:hidden">
             {methods.map((method, idx) => (
               <motion.article
                 key={`mobile-${method.id}`}
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-40px' }}
-                transition={{ duration: 0.6, delay: idx * 0.1, ease: [0.22, 1, 0.36, 1] }}
-                className="rounded-2xl border border-white/10 bg-white/[0.06] p-6 text-left backdrop-blur-sm"
+                transition={{ duration: 0.6, delay: idx * 0.08, ease: [0.22, 1, 0.36, 1] }}
+                className="rounded-2xl border border-white/10 bg-white/[0.06] p-5 text-left backdrop-blur-sm sm:p-6"
               >
                 <div className="flex items-center justify-between">
                   <div className="h-[3px] w-10 rounded-full bg-brand-red" />
@@ -114,13 +114,13 @@ export default function MethodsSection() {
                   </span>
                 </div>
 
-                <h3 className="mt-5 font-display text-xl leading-[1.2] text-white sm:text-2xl">
+                <h3 className="mt-4 font-display text-[1.15rem] leading-[1.25] text-white sm:mt-5 sm:text-2xl">
                   {method.title}
                 </h3>
 
-                <div className="mt-4 h-px w-full bg-white/10" />
+                <div className="mt-3 h-px w-full bg-white/10 sm:mt-4" />
 
-                <p className="mt-4 text-sm leading-relaxed text-white/70 sm:text-[15px]">
+                <p className="mt-3 text-[13.5px] leading-relaxed text-white/70 sm:mt-4 sm:text-[15px]">
                   {method.detail}
                 </p>
               </motion.article>

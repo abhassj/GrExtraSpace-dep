@@ -32,10 +32,10 @@ const secondaryLoop = [...brandLogos.slice().reverse(), ...brandLogos.slice().re
 
 export default function PartnersMarquee() {
   return (
-    <section className="relative bg-brand-mist py-20 text-brand-navy">
+    <section className="relative bg-brand-mist py-14 text-brand-navy sm:py-20">
       <div className="section-wrap">
         <div className="section-inner">
-          <div className="flex flex-wrap items-end justify-between gap-6 border-b border-brand-navy/15 pb-8">
+          <div className="flex flex-col gap-3 border-b border-brand-navy/15 pb-6 sm:flex-row sm:flex-wrap sm:items-end sm:justify-between sm:gap-6 sm:pb-8">
             <SectionLabel>Trusted Partners</SectionLabel>
             <p className="text-[10px] font-semibold uppercase tracking-[0.24em] text-brand-navy/60">
               Brands We Work With
@@ -44,30 +44,30 @@ export default function PartnersMarquee() {
         </div>
       </div>
 
-      <div className="mt-16 space-y-12 overflow-hidden">
+      <div className="mt-10 space-y-8 overflow-hidden sm:mt-16 sm:space-y-12">
         <div className="marquee-shell overflow-hidden">
-          <div className="marquee-track flex items-center gap-16 px-4 md:gap-24 lg:gap-32">
+          <div className="marquee-track flex items-center gap-10 px-4 sm:gap-16 md:gap-24 lg:gap-32">
             {primaryLoop.map((partner, index) => (
               <img
                 key={`primary-${partner.name}-${index}`}
                 src={partner.src}
                 alt={partner.name}
                 loading="lazy"
-                className="h-10 w-auto shrink-0 object-contain grayscale opacity-60 transition-all duration-300 hover:grayscale-0 hover:opacity-100 sm:h-12 md:h-16"
+                className="h-8 w-auto shrink-0 object-contain grayscale opacity-60 transition-all duration-300 hover:grayscale-0 hover:opacity-100 sm:h-12 md:h-16"
               />
             ))}
           </div>
         </div>
 
         <div className="marquee-shell overflow-hidden">
-          <div className="marquee-track-reverse flex items-center gap-16 px-4 md:gap-24 lg:gap-32">
+          <div className="marquee-track-reverse flex items-center gap-10 px-4 sm:gap-16 md:gap-24 lg:gap-32">
             {secondaryLoop.map((partner, index) => (
               <img
                 key={`secondary-${partner.name}-${index}`}
                 src={partner.src}
                 alt={partner.name}
                 loading="lazy"
-                className="h-10 w-auto shrink-0 object-contain grayscale opacity-60 transition-all duration-300 hover:grayscale-0 hover:opacity-100 sm:h-12 md:h-16"
+                className="h-8 w-auto shrink-0 object-contain grayscale opacity-60 transition-all duration-300 hover:grayscale-0 hover:opacity-100 sm:h-12 md:h-16"
               />
             ))}
           </div>
