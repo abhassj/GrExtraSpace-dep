@@ -167,7 +167,7 @@ After a few days, check:
 2. Website URL: `https://grextraspace.com`
 3. Stream name: `GR Extra Space Web`
 4. Click **Create Stream**
-5. Copy the **Measurement ID** (format: `G-XXXXXXXXXX`)
+5. Copy the **Measurement ID** (e.g., `G-5C7D1Z23VX`)
 
 ### Step 3: Install on Website
 
@@ -175,16 +175,16 @@ Add the Google tag to `index.html` inside the `<head>` section, **before** the c
 
 ```html
 <!-- Google Analytics 4 -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5C7D1Z23VX"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'G-XXXXXXXXXX');
+  gtag('config', 'G-5C7D1Z23VX');
 </script>
 ```
 
-> 📌 Replace `G-XXXXXXXXXX` with your actual Measurement ID.
+> 📌 Google Analytics 4 has been successfully configured.
 
 ### Step 4: Verify Installation
 
@@ -292,6 +292,7 @@ In GA4 Admin → Events:
 | Sitemap URL | `https://grextraspace.com/sitemap.xml` |
 | Robots.txt URL | `https://grextraspace.com/robots.txt` |
 | OG Image URL | `https://grextraspace.com/extraspace-og.png` |
+| GA4 Measurement ID | `G-5C7D1Z23VX` |
 
 ---
 
