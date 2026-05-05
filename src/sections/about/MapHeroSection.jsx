@@ -7,6 +7,7 @@ import {
   Marker,
   ZoomableGroup,
 } from 'react-simple-maps'
+import { useGeoData } from '../../hooks/useGeoData'
 
 const container = {
   hidden: {},
@@ -30,8 +31,6 @@ const item = {
   },
 }
 
-const geoUrl = '/data/countries-50m.json'
-
 // Standard coordinates: [Longitude, Latitude]
 const mapLocations = [
   {
@@ -54,6 +53,8 @@ const MotionDiv = motion.div
 const MotionHeading = motion.h1
 
 export default function MapHeroSection() {
+  const { data: geoData, loading } = useGeoData()
+
   return (
     <section className="relative h-[100svh] overflow-hidden bg-brand-mist text-brand-navy flex flex-col lg:min-h-screen lg:h-auto lg:block">
       {/* Background blueprint grid for texture matching inspiration */}
@@ -98,84 +99,86 @@ export default function MapHeroSection() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.2, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
           >
-            <ComposableMap
-              projection="geoMercator"
-              projectionConfig={{
-                scale: 360,
-                center: [15, 10] // Focused on EMEA (Europe & Africa)
-              }}
-              width={800}
-              height={800}
-              style={{
-                width: "100%",
-                height: "auto",
-                maxHeight: "60vh",
-                filter: "drop-shadow(0px 16px 28px rgba(10, 25, 47, 0.2))"
-              }}
-            >
-              <Geographies geography={geoUrl}>
-                {({ geographies }) =>
-                  geographies.map((geo) => {
-                    // Check if country is active
-                    const isUK = geo.properties.iso_a3 === 'GBR' || geo.properties.adm0_a3 === 'GBR' || geo.id === '826' || geo.properties.name === 'United Kingdom';
-                    const isSA = geo.properties.iso_a3 === 'ZAF' || geo.properties.adm0_a3 === 'ZAF' || geo.id === '710' || geo.properties.name === 'South Africa';
-                    
-                    let fill = "#cbd2e0"; // Default inactive light grey
-                    if (isUK || isSA) fill = "#D90429"; // brand-red
+            {geoData && (
+              <ComposableMap
+                projection="geoMercator"
+                projectionConfig={{
+                  scale: 360,
+                  center: [15, 10] // Focused on EMEA (Europe & Africa)
+                }}
+                width={800}
+                height={800}
+                style={{
+                  width: "100%",
+                  height: "auto",
+                  maxHeight: "60vh",
+                  filter: "drop-shadow(0px 16px 28px rgba(10, 25, 47, 0.2))"
+                }}
+              >
+                <Geographies geography={geoData}>
+                  {({ geographies }) =>
+                    geographies.map((geo) => {
+                      // Check if country is active
+                      const isUK = geo.properties.iso_a3 === 'GBR' || geo.properties.adm0_a3 === 'GBR' || geo.id === '826' || geo.properties.name === 'United Kingdom';
+                      const isSA = geo.properties.iso_a3 === 'ZAF' || geo.properties.adm0_a3 === 'ZAF' || geo.id === '710' || geo.properties.name === 'South Africa';
+                      
+                      let fill = "#cbd2e0"; // Default inactive light grey
+                      if (isUK || isSA) fill = "#D90429"; // brand-red
 
-                    return (
-                      <Geography
-                        key={geo.rsmKey}
-                        geography={geo}
-                        fill={fill}
-                        stroke="#ffffff"
-                        strokeWidth={0.8}
-                        style={{
-                          default: { outline: "none", transition: "all 250ms" },
-                          hover: { outline: "none", fill: (isUK || isSA) ? '#A00320' : '#b0b8cc', transition: "all 250ms" },
-                          pressed: { outline: "none" },
-                        }}
+                      return (
+                        <Geography
+                          key={geo.rsmKey}
+                          geography={geo}
+                          fill={fill}
+                          stroke="#ffffff"
+                          strokeWidth={0.8}
+                          style={{
+                            default: { outline: "none", transition: "all 250ms" },
+                            hover: { outline: "none", fill: (isUK || isSA) ? '#A00320' : '#b0b8cc', transition: "all 250ms" },
+                            pressed: { outline: "none" },
+                          }}
+                        />
+                      );
+                    })
+                  }
+                </Geographies>
+
+                {/* Map Pins */}
+                {mapLocations.map((loc) => (
+                  <Marker key={loc.country} coordinates={loc.coordinates}>
+                    <g className="group cursor-pointer">
+                      {/* Teardrop Pin matching inspiration */}
+                      <path
+                        d="M12 0C7.58 0 4 3.58 4 8c0 5.25 8 13 8 13s8-7.75 8-13c0-4.42-3.58-8-8-8z"
+                        fill="#ffffff"
+                        stroke="rgba(0,0,0,0.1)"
+                        strokeWidth="1"
+                        transform="translate(-12, -24)"
                       />
-                    );
-                  })
-                }
-              </Geographies>
-
-              {/* Map Pins */}
-              {mapLocations.map((loc) => (
-                <Marker key={loc.country} coordinates={loc.coordinates}>
-                  <g className="group cursor-pointer">
-                    {/* Teardrop Pin matching inspiration */}
-                    <path
-                      d="M12 0C7.58 0 4 3.58 4 8c0 5.25 8 13 8 13s8-7.75 8-13c0-4.42-3.58-8-8-8z"
-                      fill="#ffffff"
-                      stroke="rgba(0,0,0,0.1)"
-                      strokeWidth="1"
-                      transform="translate(-12, -24)"
-                    />
-                    {/* Inner colored circle (brand color) */}
-                    <circle cx="0" cy="-16" r="3.5" fill={loc.color} />
-                    
-                    {/* Hover text label */}
-                    <text
-                      textAnchor="middle"
-                      y="-32"
-                      style={{
-                        fontFamily: "Inter, sans-serif",
-                        fill: "#0A192F",
-                        fontSize: "12px",
-                        fontWeight: "bold",
-                        opacity: 0,
-                        transition: "opacity 0.2s ease"
-                      }}
-                      className="group-hover:opacity-100 drop-shadow-md"
-                    >
-                      {loc.region}
-                    </text>
-                  </g>
-                </Marker>
-              ))}
-            </ComposableMap>
+                      {/* Inner colored circle (brand color) */}
+                      <circle cx="0" cy="-16" r="3.5" fill={loc.color} />
+                      
+                      {/* Hover text label */}
+                      <text
+                        textAnchor="middle"
+                        y="-32"
+                        style={{
+                          fontFamily: "Inter, sans-serif",
+                          fill: "#0A192F",
+                          fontSize: "12px",
+                          fontWeight: "bold",
+                          opacity: 0,
+                          transition: "opacity 0.2s ease"
+                        }}
+                        className="group-hover:opacity-100 drop-shadow-md"
+                      >
+                        {loc.region}
+                      </text>
+                    </g>
+                  </Marker>
+                ))}
+              </ComposableMap>
+            )}
           </MotionDiv>
         </div>
       </div>
