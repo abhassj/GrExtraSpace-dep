@@ -1,6 +1,9 @@
 import { useRef, useState, useCallback } from 'react'
+import { motion } from 'framer-motion'
 import clsx from 'clsx'
 import { ArrowLeft, ArrowRight } from 'lucide-react'
+
+const MotionDiv = motion.div
 import useEmblaCarousel from 'embla-carousel-react'
 import Autoplay from 'embla-carousel-autoplay'
 import { projects } from '../data/homeContent'
@@ -36,7 +39,13 @@ export default function ProjectsSlider() {
       <div className="flex flex-col items-center gap-8 sm:gap-10 lg:flex-row lg:gap-10 xl:gap-16">
 
         {/* Text block on mobile renders first via DOM order (placed below for desktop via order) */}
-        <div className="order-1 w-full px-5 md:px-10 lg:order-2 lg:mt-0 lg:w-[28%] lg:pr-10 xl:pr-16 lg:pl-0 flex flex-col justify-center shrink-0">
+        <MotionDiv 
+          className="order-1 w-full px-5 md:px-10 lg:order-2 lg:mt-0 lg:w-[28%] lg:pr-10 xl:pr-16 lg:pl-0 flex flex-col justify-center shrink-0"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+        >
           <h2 className="font-display text-[2rem] font-medium leading-[1.05] tracking-[-0.01em] text-brand-navy sm:text-4xl md:text-5xl lg:text-[3.2rem]">
             Extraordinary
             <br />
@@ -68,7 +77,7 @@ export default function ProjectsSlider() {
               <ArrowRight size={16} />
             </button>
           </div>
-        </div>
+        </MotionDiv>
 
         {/* Slider Container */}
         <div className="order-2 w-full lg:order-1 lg:w-[72%]">

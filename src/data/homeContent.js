@@ -202,7 +202,7 @@ export const testimonials = [
     quote:
       'The team handled everything from structural work to finishing with care. Communication was clear and timelines were respected.',
     client: 'Jane Pillay',
-    detail: 'Private Residential Client',
+    detail: 'Sibaya Trust',
   },
   {
     quote:

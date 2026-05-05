@@ -15,7 +15,13 @@ export default function ServicesOverview() {
       <div className="section-wrap">
         <div className="section-inner">
           <div className="grid gap-10 sm:gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
-            <div className="flex flex-col justify-between">
+            <MotionDiv 
+              className="flex flex-col justify-between"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            >
               <div>
                 <p className="eyebrow">Powering Your Project</p>
 
@@ -44,7 +50,7 @@ export default function ServicesOverview() {
                   <ArrowRight size={14} />
                 </a>
               </div>
-            </div>
+            </MotionDiv>
 
             <div className="relative hidden lg:block">
               <div className="flex h-[560px] w-full">
@@ -127,36 +133,43 @@ export default function ServicesOverview() {
               </div>
             </div>
 
-            <div className="space-y-2 lg:hidden">
+            <div className="space-y-3 lg:hidden">
               {services.map((service, idx) => (
-                <details
+                <MotionDiv
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ duration: 0.5, delay: idx * 0.1 }}
                   key={service.id}
-                  className="group border border-brand-navy/15 bg-white transition-colors open:bg-brand-paper"
                 >
-                  <summary className="flex cursor-pointer list-none items-center justify-between gap-3 px-4 py-4 font-display text-lg text-brand-navy sm:px-5 sm:py-5 sm:text-xl">
-                    <span className="flex min-w-0 items-center gap-3 sm:gap-4">
-                      <span className="text-[10px] font-semibold uppercase tracking-[0.22em] text-brand-red">
-                        0{idx + 1}
+                  <details
+                    className="group overflow-hidden border border-brand-navy/15 bg-white transition-colors open:bg-brand-paper"
+                  >
+                    <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-5 font-display text-lg text-brand-navy sm:px-6 sm:py-6 sm:text-xl">
+                      <span className="flex flex-1 items-start gap-4">
+                        <span className="mt-1 flex shrink-0 items-center text-[10px] font-semibold uppercase tracking-[0.22em] text-brand-red">
+                          0{idx + 1}
+                        </span>
+                        <span className="leading-tight">{service.title}</span>
                       </span>
-                      <span className="truncate">{service.title}</span>
-                    </span>
-                    <ArrowRight
-                      size={16}
-                      className="shrink-0 transition group-open:rotate-90"
-                    />
-                  </summary>
-                  <div className="border-t border-brand-navy/10">
-                    <img
-                      src={service.image}
-                      alt={service.title}
-                      loading="lazy"
-                      className="h-44 w-full object-cover sm:h-56"
-                    />
-                    <p className="px-4 py-4 text-sm leading-relaxed text-brand-navy/75 sm:px-5 sm:py-5">
-                      {service.benefit}
-                    </p>
-                  </div>
-                </details>
+                      <ArrowRight
+                        size={16}
+                        className="shrink-0 transition-transform duration-300 group-open:rotate-90"
+                      />
+                    </summary>
+                    <div className="border-t border-brand-navy/10">
+                      <img
+                        src={service.image}
+                        alt={service.title}
+                        loading="lazy"
+                        className="h-48 w-full object-cover sm:h-64"
+                      />
+                      <p className="px-5 py-5 text-[15px] leading-relaxed text-brand-navy/75 sm:px-6 sm:py-6">
+                        {service.benefit}
+                      </p>
+                    </div>
+                  </details>
+                </MotionDiv>
               ))}
             </div>
           </div>

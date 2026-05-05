@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { motion } from 'framer-motion'
 import clsx from 'clsx'
 import useEmblaCarousel from 'embla-carousel-react'
 import Autoplay from 'embla-carousel-autoplay'
@@ -10,6 +11,8 @@ const trustSignals = [
   'Certified Build Teams',
   'Cross-Border Delivery',
 ]
+
+const MotionDiv = motion.div
 
 export default function TestimonialsSection() {
   const autoplay = useRef(
@@ -47,7 +50,13 @@ export default function TestimonialsSection() {
   return (
     <section className="relative bg-brand-paper py-14 sm:py-16 lg:py-20 text-brand-navy">
       <div className="section-wrap">
-        <div className="section-inner">
+        <MotionDiv 
+          className="section-inner"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+        >
           <div className="flex flex-col gap-6 sm:flex-row sm:flex-wrap sm:items-end sm:justify-between sm:gap-10">
             <div className="max-w-2xl">
               <SectionLabel>Client Voices</SectionLabel>
@@ -138,7 +147,7 @@ export default function TestimonialsSection() {
             ))}
           </div>
 
-        </div>
+        </MotionDiv>
       </div>
     </section>
   )
