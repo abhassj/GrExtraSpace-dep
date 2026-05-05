@@ -51,9 +51,9 @@ export default function HeroSection() {
   const activeSlide = heroSlides[index]
 
   return (
-    <section className="relative min-h-screen overflow-hidden bg-brand-mist text-brand-navy">
-      <div className="grid min-h-screen grid-cols-1 lg:grid-cols-[0.85fr_1.15fr]">
-        <div className="relative flex flex-col justify-end pb-10 pt-24 sm:pb-14 sm:pt-32 md:pb-20 md:pt-40 lg:justify-center lg:pb-10 lg:pt-10">
+    <section className="relative h-[100svh] overflow-hidden bg-brand-mist text-brand-navy lg:min-h-screen lg:h-auto">
+      <div className="grid h-full grid-cols-1 grid-rows-[auto_1fr] lg:grid-rows-none lg:min-h-screen lg:grid-cols-[0.85fr_1.15fr]">
+        <div className="relative flex flex-col justify-end pb-6 pt-20 sm:pb-10 sm:pt-28 md:pb-16 md:pt-36 lg:justify-center lg:pb-10 lg:pt-10">
           <div className="section-wrap">
             <MotionDiv
               className="max-w-xl"
@@ -108,7 +108,7 @@ export default function HeroSection() {
           </div>
         </div>
 
-        <div className="relative min-h-[58vh] overflow-hidden bg-brand-ink sm:min-h-[55vh] lg:min-h-screen">
+        <div className="relative min-h-0 overflow-hidden bg-brand-ink lg:min-h-screen">
           <AnimatePresence mode="sync">
             <motion.div
               key={activeSlide.image}

@@ -55,12 +55,12 @@ const MotionHeading = motion.h1
 
 export default function MapHeroSection() {
   return (
-    <section className="relative min-h-screen overflow-hidden bg-brand-mist text-brand-navy pt-20 sm:pt-24 lg:pt-0 flex flex-col lg:block">
+    <section className="relative h-[100svh] overflow-hidden bg-brand-mist text-brand-navy flex flex-col lg:min-h-screen lg:h-auto lg:block">
       {/* Background blueprint grid for texture matching inspiration */}
       <div className="blueprint-grid absolute inset-0 opacity-[0.06] pointer-events-none" />
 
-      <div className="grid min-h-[88vh] grid-cols-1 lg:grid-cols-[0.85fr_1.15fr] lg:min-h-screen">
-        <div className="relative flex flex-col justify-center px-5 sm:px-6 md:px-12 lg:pl-20 xl:pl-32 pb-8 pt-10 sm:pb-12 sm:pt-16 lg:pb-0 lg:pt-0 z-10">
+      <div className="grid h-full grid-cols-1 grid-rows-[auto_1fr] lg:grid-rows-none lg:min-h-screen lg:grid-cols-[0.85fr_1.15fr]">
+        <div className="relative flex flex-col justify-center px-5 pt-20 pb-4 sm:px-6 sm:pt-24 sm:pb-8 md:px-12 lg:pl-20 xl:pl-32 lg:pb-0 lg:pt-0 z-10">
           <MotionDiv
             className="max-w-[550px]"
             variants={container}
@@ -91,7 +91,7 @@ export default function MapHeroSection() {
         </div>
 
         {/* Right Panel: Map */}
-        <div className="relative min-h-[44vh] w-full flex items-center justify-center p-4 sm:min-h-[50vh] lg:p-0 z-0">
+        <div className="relative min-h-0 w-full flex items-center justify-center p-4 lg:p-0 z-0">
           <MotionDiv 
             className="relative w-full max-w-[800px] h-full flex items-center justify-center lg:-ml-12 xl:-ml-24"
             initial={{ opacity: 0, scale: 0.98 }}
