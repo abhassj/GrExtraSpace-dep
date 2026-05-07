@@ -111,7 +111,7 @@ export const methods = [
     summary:
       'Engineered structural frames that balance speed, strength, and design flexibility.',
     detail:
-      'Our teams build with precise structural planning so projects gain rigidity and efficient assembly from the earliest stage.',
+      'Our teams build with precise structural planning such that projects achieve strength and efficient assembly from the earliest stage.',
   },
   {
     id: 'prefab',
@@ -160,8 +160,8 @@ export const projects = [
     image: port2,
   },
   {
-    name: 'Container feeding kitchens',
-    summary: 'Container feeding kitchen for impoverished areas built in partnership with Vivian Reddy Sibaya Community Trust',
+    name: 'Container kitchens',
+    summary: 'Container kitchens for impoverished areas built in partnership with Vivian Reddy Sibaya Community Trust',
     image: port3,
   },
   {

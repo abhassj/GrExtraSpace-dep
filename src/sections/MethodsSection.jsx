@@ -43,7 +43,7 @@ export default function MethodsSection() {
           <div className="max-w-3xl text-center">
             <SectionLabel light>Construction Methods</SectionLabel>
             <h2 className="mt-5 font-display text-[1.85rem] font-medium leading-[1.08] tracking-[-0.01em] text-white sm:mt-6 sm:text-4xl md:text-5xl lg:text-[3.2rem]">
-              Technical expertise built around precision, speed,
+              Technical expertise built around precision, speed
               <br className="hidden md:block" />
               and <span className="italic">durability.</span>
             </h2>
