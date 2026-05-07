@@ -162,7 +162,12 @@ export default function ServicesOverview() {
                         src={service.image}
                         alt={service.title}
                         loading="lazy"
-                        className="h-48 w-full object-cover sm:h-64"
+                        className={clsx(
+                          "w-full sm:h-64",
+                          (service.id === 'storage-units' || service.id === 'nutec')
+                            ? "h-auto object-contain" 
+                            : "h-48 object-cover"
+                        )}
                       />
                       <p className="px-5 py-5 text-[15px] leading-relaxed text-brand-navy/75 sm:px-6 sm:py-6">
                         {service.benefit}

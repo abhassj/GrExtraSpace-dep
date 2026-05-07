@@ -99,11 +99,11 @@ export const services = [
 export const methods = [
   {
     id: 'nutech',
-    title: 'Nutech Systems',
+    title: 'Nutec Systems',
     summary:
       'High-performance insulation, coatings, and structural solutions tuned for long-term reliability.',
     detail:
-      'Nutech-first envelopes improve comfort, control thermal transfer, and provide premium weather resilience across UK and SA climates.',
+      'Nutec-first envelopes improve comfort, control thermal transfer, and provide premium weather resilience across UK and SA climates.',
   },
   {
     id: 'timber-steel',
@@ -165,7 +165,7 @@ export const projects = [
     image: port3,
   },
   {
-    name: 'Nutech classrooms',
+    name: 'Nutec classrooms',
     summary: 'Delivering durable Nutec classrooms that enhance learning environments through fast, sustainable construction and impactful community-focused infrastructure development.',
     image: port4,
   },
@@ -175,7 +175,7 @@ export const projects = [
     image: port5,
   },
   {
-    name: 'Nutech offices',
+    name: 'Nutec offices',
     summary: 'Sustainable Nutec structural solutions providing durable, high-performance modular office environments designed for modern business agility.',
     image: port6,
   },
